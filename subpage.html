@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Produk UMKM Gunungkidul</title>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/a2d9d6c9b8.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <img src="assets/logo.png" alt="Logo Gunungkidul" class="logo">
+      <h1>Produk UMKM Gunungkidul</h1>
+      <h2>DPMPTSP Kab. Gunungkidul</h2>
+    </header>
+
+    <!-- Link Cards -->
+    <main id="links-container"></main>
+
+    <!-- Tombol kembali -->
+    <a href="index.html" class="card">
+      <i class="fas fa-arrow-left"></i>
+      <span>Kembali ke Halaman Utama</span>
+    </a>
+  </div>
+
+  <script src="js/script.js"></script>
+  <script>
+    loadLinks("data/subpage.json");
+  </script>
+  <div id="footer-placeholder"></div>
+
+<script>
+  // Load footer.html ke setiap halaman
+  fetch("footer.html")
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById("footer-placeholder").innerHTML = data;
+    });
+</script>
+</body>
+</html>

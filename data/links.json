@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Formulir Kepeminatan Investasi",
+    "url": "https://script.google.com/macros/s/AKfycbzGN9erd9_9EDsGO8SG1_OZntE9rb1bGCUo20RuW73dqjjSeJFhws4w2JZlU4N4BeE/exec",
+    "icon": "fa-file-signature"
+  },
+  {
+    "title": "Daftar Hadir Pengunjung APKASI",
+    "url": "https://docs.google.com/forms/d/e/1FAIpQLSfoO2b1s9IkEz2QUZLW3hTPSVI_s9MezBEbXCTTBlet8ZVgUA/viewform?usp=dialog",
+    "icon": "fa-users"
+    },
+ 
+  {
+    "title": "Produk UMKM Gunungkidul",
+    "url": "subpage.html",
+    "icon": "fa-layer-group"
+  },
+  {
+    "title": "Investmen Project Ready to Offer<br>(IPRO) 2020-2025",
+    "url": "allipro.html",
+    "icon": "fa-lightbulb"}
+  ]

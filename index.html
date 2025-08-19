@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DPMPTSP Kab. Gunungkidul</title>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/a2d9d6c9b8.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <img src="assets/logo.png" alt="Logo Gunungkidul" class="logo">
+      <h1>Dinas Penanaman Modal<br>dan Pelayanan Terpadu Satu Pintu</h1>
+      <h2>Kabupaten Gunungkidul</h2>
+    </header>
+
+    <!-- Link Cards -->
+    <main id="links-container"></main>
+  </div>
+
+  <script src="js/script.js"></script>
+  <script>
+    loadLinks("data/links.json");
+  </script>
+  <!-- Footer -->
+   <footer class="footer">
+  <div class="footer-content">
+    <p class="alamat">
+      Jalan Kesatrian 38 Wonosari, Gunungkidul
+    </p>
+
+        <div class="footer-logo">
+      <img src="assets/logo-footer.png" alt="Logo DPMPTSP">
+    </div>
+  </div>
+</footer>
+</body>
+</html>
