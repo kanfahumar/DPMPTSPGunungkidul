@@ -256,11 +256,24 @@
         tanda_tangan_base64: signaturePad.toDataURL()
       };
 
-      fetch("https://script.google.com/macros/s/AKfycbyj-K1SnwQ16CBXG_Kr-SCNF24oq5P3G5XLBLX4VDc926QBFV8yK0rQuV9v6lIi_jFuRg/exec", {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: { "Content-Type": "application/json" }
-      })
+      fetch("/api/submit", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(data)
+})
+.then(res => res.json())
+.then(resp => {
+  if (resp.ok) {
+    document.getElementById("mainForm").style.display = "none";
+    document.getElementById("thankYouPage").style.display = "block";
+  } else {
+    notif.innerHTML = `<div class="alert alert-danger">Gagal: ${resp.message}</div>`;
+  }
+})
+.catch(err => {
+  notif.innerHTML = `<div class="alert alert-danger">Error: ${err}</div>`;
+});
+
       .then(res => res.json())
       .then(resp => {
         if (resp.ok) {
@@ -281,6 +294,7 @@
   </script>
 </body>
 </html>
+
 
 
 
