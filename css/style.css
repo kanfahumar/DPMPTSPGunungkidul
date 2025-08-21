@@ -102,7 +102,7 @@ header h2 {
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   padding: 20px 10px;
-  margin-top: 40px;
+  margin-top: 10px;
   text-align: center;
   border-top: 1px solid rgba(0,0,0,0.1);
 }
@@ -110,7 +110,7 @@ header h2 {
 .footer .alamat {
   font-size: 0.85rem;
   color: #222;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .footer .sosmed {
@@ -145,3 +145,4 @@ header h2 {
   margin-top: 10px;
   opacity: 0.9;
 }
+
