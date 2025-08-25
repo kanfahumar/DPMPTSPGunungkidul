@@ -5,7 +5,7 @@ export default async function handler(req, res) {
 
   try {
     // URL WebApp Google Apps Script kamu
-    const GAS_URL = "https://script.google.com/macros/s/AKfycbyOyvLsWwD92MFEAe695QLe2Gq9KOOdNAJiTHhWFYdCv1-Ytk3CtJ2a3pHOFhvArRbW/exec";
+    const GAS_URL = "https://script.google.com/macros/s/AKfycbwHnxKLxODyMg59Amky8-sh9py7709zqoj-V6n2gn6TVCSaAZHf8C7cq-IWYN2aalU5/exec";
 
     // Forward body ke GAS
     const response = await fetch(GAS_URL, {
@@ -29,4 +29,5 @@ export default async function handler(req, res) {
     return res.status(500).json({ ok: false, message: err.toString() });
   }
 }
+
 
