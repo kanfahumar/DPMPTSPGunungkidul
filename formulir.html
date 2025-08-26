@@ -23,7 +23,7 @@
       backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
       border-radius: 20px; border: 1px solid rgba(255,255,255,0.2);
       box-shadow: 0 8px 32px rgba(31,38,135,0.37);
-      padding: 30px; width:100%; max-width: 850px;
+      padding: 30px; width:100%; max-width: 900px;
     }
     h2 { font-family: 'Playfair Display', serif; text-align:center; margin-bottom: 30px; }
     .form-control, .form-select, textarea {
@@ -57,7 +57,6 @@
       <h2><i class="bi bi-handshake me-2"></i>Formulir Calon Investor</h2>
 
       <form id="investForm" novalidate>
-        <!-- isian form sama seperti versi sebelumnya (nama, alamat, perusahaan, sektor, dst) -->
         <div class="row">
           <div class="col-md-6 mb-3">
             <label class="form-label"><i class="bi bi-person me-2"></i>Nama Lengkap</label>
@@ -68,7 +67,69 @@
             <input type="text" class="form-control" name="alamat" />
           </div>
         </div>
-        <!-- ... potong untuk singkat, sektor dll sama seperti sebelumnya ... -->
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label class="form-label"><i class="bi bi-buildings me-2"></i>Nama Perusahaan</label>
+            <input type="text" class="form-control" name="nama_perusahaan" />
+          </div>
+          <div class="col-md-6 mb-3">
+            <label class="form-label"><i class="bi bi-pin-map me-2"></i>Alamat Perusahaan</label>
+            <input type="text" class="form-control" name="alamat_perusahaan" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label class="form-label"><i class="bi bi-envelope me-2"></i>Email</label>
+            <input type="email" class="form-control" name="email" />
+          </div>
+          <div class="col-md-6 mb-3">
+            <label class="form-label"><i class="bi bi-phone me-2"></i>No HP / Whatsapp</label>
+            <input type="tel" class="form-control" name="kontak" />
+          </div>
+        </div>
+
+        <!-- Sektor Investasi -->
+        <div class="mb-3">
+          <label class="form-label"><i class="bi bi-diagram-3 me-2"></i>Kepeminatan Investasi - Sektor</label>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-check"><input class="form-check-input sektor" type="checkbox" value="Pertanian"/><label class="form-check-label">Pertanian</label></div>
+              <div class="form-check"><input class="form-check-input sektor" type="checkbox" value="Perkebunan"/><label class="form-check-label">Perkebunan</label></div>
+              <div class="form-check"><input class="form-check-input sektor" type="checkbox" value="Perikanan Kelautan"/><label class="form-check-label">Perikanan Kelautan</label></div>
+              <div class="form-check"><input class="form-check-input sektor" type="checkbox" value="Pariwisata"/><label class="form-check-label">Pariwisata</label></div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-check"><input class="form-check-input sektor" type="checkbox" value="Kesehatan"/><label class="form-check-label">Kesehatan</label></div>
+              <div class="form-check"><input class="form-check-input sektor" type="checkbox" value="Peternakan"/><label class="form-check-label">Peternakan</label></div>
+              <div class="form-check"><input class="form-check-input sektor" type="checkbox" value="Perindustrian"/><label class="form-check-label">Perindustrian</label></div>
+              <div class="form-check"><input class="form-check-input sektor" type="checkbox" value="Pendidikan"/><label class="form-check-label">Pendidikan</label></div>
+              <div class="form-check"><input id="sektorLain" class="form-check-input sektor" type="checkbox" value="Lainnya"/><label class="form-check-label">Lainnya</label></div>
+            </div>
+          </div>
+          <input type="text" id="inputSektorLain" class="form-control mt-2" placeholder="Sebutkan sektor lainnya" style="display:none;" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label"><i class="bi bi-geo me-2"></i>Lokasi</label>
+          <input type="text" class="form-control" name="lokasi" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label"><i class="bi bi-briefcase me-2"></i>Jenis Usaha</label>
+          <input type="text" class="form-control" name="jenis_usaha" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label"><i class="bi bi-aspect-ratio me-2"></i>Luasan</label>
+          <input type="text" class="form-control" name="luasan" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label"><i class="bi bi-cash-stack me-2"></i>Nilai Investasi</label>
+          <input type="text" class="form-control" name="nilai_investasi" />
+        </div>
 
         <div class="mb-3">
           <label class="form-label"><i class="bi bi-pen me-2"></i>Tanda Tangan</label>
@@ -106,7 +167,15 @@
     const mainForm = document.getElementById("mainForm");
     const thankYouPage = document.getElementById("thankYouPage");
 
-    // Signature pad + fungsi dari basic.html (background putih)
+    // Toggle sektor lainnya
+    const sektorLain = document.getElementById('sektorLain');
+    const inputSektorLain = document.getElementById('inputSektorLain');
+    sektorLain.addEventListener('change', () => {
+      inputSektorLain.style.display = sektorLain.checked ? 'block' : 'none';
+      if (!sektorLain.checked) inputSektorLain.value = '';
+    });
+
+    // Signature pad dengan background putih
     const canvas = document.getElementById("signatureCanvas");
     const signaturePad = new SignaturePad(canvas);
     function resizeCanvas() {
@@ -142,18 +211,31 @@
         return;
       }
 
-      // ambil data
-      const formData = new FormData(form);
-      const data = {};
-      formData.forEach((val, key) => {
-        if (data[key]) {
-          if (!Array.isArray(data[key])) data[key] = [data[key]];
-          data[key].push(val);
-        } else {
-          data[key] = val;
-        }
-      });
-      data.tanda_tangan_base64 = getSignatureWithWhiteBG();
+      const sektorTerpilih = Array.from(document.querySelectorAll(".sektor:checked")).map(el => el.value);
+      if (sektorTerpilih.length === 0) {
+        notif.innerHTML = `<div class="alert alert-warning">Pilih minimal satu sektor investasi.</div>`;
+        return;
+      }
+      if (sektorTerpilih.includes('Lainnya') && !inputSektorLain.value.trim()) {
+        notif.innerHTML = `<div class="alert alert-warning">Mohon isi detail "Sektor lainnya".</div>`;
+        return;
+      }
+
+      const data = {
+        nama: form.nama.value.trim(),
+        alamat: form.alamat.value.trim(),
+        nama_perusahaan: form.nama_perusahaan.value.trim(),
+        alamat_perusahaan: form.alamat_perusahaan.value.trim(),
+        email: form.email.value.trim(),
+        kontak: form.kontak.value.trim(),
+        sektor: sektorTerpilih,
+        sektor_lainnya: sektorLain.checked ? inputSektorLain.value.trim() : '',
+        lokasi: form.lokasi.value.trim(),
+        jenis_usaha: form.jenis_usaha.value.trim(),
+        luasan: form.luasan.value.trim(),
+        nilai_investasi: form.nilai_investasi.value.trim(),
+        tanda_tangan_base64: getSignatureWithWhiteBG()
+      };
 
       try {
         const res = await fetch("/api/submit", {
