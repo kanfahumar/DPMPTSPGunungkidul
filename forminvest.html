@@ -245,7 +245,7 @@
       };
 
       try {
-        const res = await fetch("/pages/api/submit", {
+        const res = await fetch("/api/submit", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(data),
@@ -268,4 +268,5 @@
   </script>
 </body>
 </html>
+
 
