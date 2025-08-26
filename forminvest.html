@@ -2,247 +2,191 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Formulir Kepeminatan Investasi</title>
-
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Poppins&display=swap" rel="stylesheet">
-  <!-- Font Awesome -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formulir Calon Investor</title>
   <style>
     body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      min-height: 100vh; padding: 20px; color: white;
+      font-family: Arial, sans-serif;
+      background: #f4f6f9;
+      margin: 0;
+      padding: 0;
     }
-    .glass-card {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-      border-radius: 20px; border: 1px solid rgba(255,255,255,0.2);
-      box-shadow: 0 8px 32px rgba(31,38,135,0.37);
-      padding: 30px; width:100%; max-width: 800px;
+    .container {
+      max-width: 700px;
+      margin: 20px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
-    h2 { font-family: 'Playfair Display', serif; text-align:center; margin-bottom: 30px; }
-    .form-control, .form-select, textarea {
-      background: rgba(255,255,255,0.2)!important;
-      border: 1px solid rgba(255,255,255,0.3)!important;
-      color: white!important; border-radius: 10px!important;
+    h1 {
+      text-align: center;
+      font-size: 1.6rem;
+      margin-bottom: 20px;
     }
-    .form-control::placeholder { color: rgba(255,255,255,0.7)!important; }
-    .btn-primary {
-      background: linear-gradient(45deg, #bfa46f, #a88f54); border:none; border-radius:50px;
-      padding: 12px 30px; font-weight:600; transition: all .3s;
+    label {
+      display: block;
+      margin-top: 12px;
+      font-weight: bold;
     }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
-    #signatureCanvas {
-      border: 1px solid rgba(255,255,255,0.3); border-radius:10px;
-      background: #fff; width:100%; height:180px; cursor: crosshair;
+    input, textarea, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 4px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 14px;
     }
-    .spinner-border { display:none; }
-    .thank-you-page { display:none; text-align:center; }
-
-    @media (max-width: 576px) {
-      h2 { font-size: 1.5rem; }
-      .glass-card { padding: 20px; }
-      .form-control, .form-select, textarea { font-size: 14px; }
-      #signatureCanvas { height: 120px; }
+    .signature-box {
+      margin-top: 16px;
+    }
+    canvas {
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      width: 100%;
+      height: 200px;
+    }
+    button {
+      margin-top: 16px;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 8px;
+      background: #007bff;
+      color: #fff;
+      font-size: 15px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    .success {
+      margin-top: 16px;
+      padding: 12px;
+      background: #d4edda;
+      color: #155724;
+      border-radius: 6px;
+    }
+    .error {
+      margin-top: 16px;
+      padding: 12px;
+      background: #f8d7da;
+      color: #721c24;
+      border-radius: 6px;
     }
   </style>
 </head>
 <body>
-  <div class="container-fluid d-flex justify-content-center">
-    <!-- Form Utama -->
-    <div class="glass-card" id="mainForm">
-      <h2><i class="fas fa-handshake me-2"></i>Formulir Kepeminatan Investasi</h2>
+  <div class="container">
+    <h1>Formulir Calon Investor</h1>
+    <form id="investForm">
+      <label>Nama</label>
+      <input type="text" name="nama" required />
 
-      <form id="investForm" novalidate>
-        <div class="row">
-          <div class="col-md-6 mb-3">
-            <label class="form-label"><i class="fas fa-user me-2"></i>Nama Lengkap</label>
-            <input type="text" class="form-control" name="nama" required />
-          </div>
-          <div class="col-md-6 mb-3">
-            <label class="form-label"><i class="fas fa-map-marker-alt me-2"></i>Alamat</label>
-            <input type="text" class="form-control" name="alamat" required />
-          </div>
-        </div>
+      <label>Alamat</label>
+      <textarea name="alamat"></textarea>
 
-        <div class="row">
-          <div class="col-md-6 mb-3">
-            <label class="form-label"><i class="fas fa-building me-2"></i>Nama Perusahaan</label>
-            <input type="text" class="form-control" name="nama_perusahaan" required />
-          </div>
-          <div class="col-md-6 mb-3">
-            <label class="form-label"><i class="fas fa-map-pin me-2"></i>Alamat Perusahaan</label>
-            <input type="text" class="form-control" name="alamat_perusahaan" required />
-          </div>
-        </div>
+      <label>Nama Perusahaan</label>
+      <input type="text" name="nama_perusahaan" />
 
-        <div class="row">
-          <div class="col-md-6 mb-3">
-            <label class="form-label"><i class="fas fa-envelope me-2"></i>Email</label>
-            <input type="email" class="form-control" name="email" required />
-          </div>
-          <div class="col-md-6 mb-3">
-            <label class="form-label"><i class="fas fa-phone me-2"></i>No HP / Whatsapp</label>
-            <input type="tel" pattern="[0-9+]+" class="form-control" name="kontak" required />
-          </div>
-        </div>
+      <label>Alamat Perusahaan</label>
+      <textarea name="alamat_perusahaan"></textarea>
 
-        <!-- Sektor Investasi -->
-        <div class="mb-3">
-          <label class="form-label"><i class="fas fa-layer-group me-2"></i>Kepeminatan Investasi - Sektor</label>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-check"><input class="form-check-input sektor" type="checkbox" value="Pertanian"/><label class="form-check-label">Pertanian</label></div>
-              <div class="form-check"><input class="form-check-input sektor" type="checkbox" value="Perkebunan"/><label class="form-check-label">Perkebunan</label></div>
-              <div class="form-check"><input class="form-check-input sektor" type="checkbox" value="Perikanan Kelautan"/><label class="form-check-label">Perikanan Kelautan</label></div>
-              <div class="form-check"><input class="form-check-input sektor" type="checkbox" value="Pariwisata"/><label class="form-check-label">Pariwisata</label></div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-check"><input class="form-check-input sektor" type="checkbox" value="Kesehatan"/><label class="form-check-label">Kesehatan</label></div>
-              <div class="form-check"><input class="form-check-input sektor" type="checkbox" value="Peternakan"/><label class="form-check-label">Peternakan</label></div>
-              <div class="form-check"><input class="form-check-input sektor" type="checkbox" value="Perindustrian"/><label class="form-check-label">Perindustrian</label></div>
-              <div class="form-check"><input class="form-check-input sektor" type="checkbox" value="Pendidikan"/><label class="form-check-label">Pendidikan</label></div>
-              <div class="form-check"><input id="sektorLain" class="form-check-input sektor" type="checkbox" value="Lainnya"/><label class="form-check-label">Lainnya</label></div>
-            </div>
-          </div>
-          <input type="text" id="inputSektorLain" class="form-control mt-2" placeholder="Sebutkan sektor lainnya" style="display:none;" />
-        </div>
+      <label>Email</label>
+      <input type="email" name="email" />
 
-        <div class="mb-3">
-          <label class="form-label"><i class="fas fa-map-location-dot me-2"></i>Lokasi</label>
-          <input type="text" class="form-control" name="lokasi" required />
-        </div>
+      <label>No. HP / Whatsapp</label>
+      <input type="text" name="kontak" />
 
-        <div class="mb-3">
-          <label class="form-label"><i class="fas fa-briefcase me-2"></i>Jenis Usaha</label>
-          <input type="text" class="form-control" name="jenis_usaha" required />
-        </div>
+      <label>Sektor</label>
+      <div>
+        <input type="checkbox" name="sektor" value="Pertanian" /> Pertanian
+        <input type="checkbox" name="sektor" value="Pariwisata" /> Pariwisata
+        <input type="checkbox" name="sektor" value="Industri" /> Industri
+      </div>
 
-        <div class="mb-3">
-          <label class="form-label"><i class="fas fa-ruler-combined me-2"></i>Luasan</label>
-          <input type="text" class="form-control" name="luasan" placeholder="contoh: 2 Ha" required />
-        </div>
+      <label>Sektor Lainnya</label>
+      <input type="text" name="sektor_lainnya" placeholder="Tuliskan jika tidak ada di atas" />
 
-        <div class="mb-3">
-          <label class="form-label"><i class="fas fa-money-bill-wave me-2"></i>Nilai Investasi</label>
-          <input type="number" class="form-control" name="nilai_investasi" min="0" required />
-        </div>
+      <label>Lokasi</label>
+      <input type="text" name="lokasi" />
 
-        <div class="mb-3">
-          <label class="form-label"><i class="fas fa-pen-nib me-2"></i>Tanda Tangan</label>
-          <canvas id="signatureCanvas"></canvas>
-          <button type="button" class="btn btn-sm btn-outline-light mt-2" id="clearSignature">
-            <i class="fas fa-eraser me-1"></i>Hapus Tanda Tangan
-          </button>
-        </div>
+      <label>Jenis Usaha</label>
+      <input type="text" name="jenis_usaha" />
 
-        <div class="d-grid">
-          <button type="submit" class="btn btn-primary">
-            <span id="spinner" class="spinner-border spinner-border-sm me-2" role="status"></span>
-            <i class="fas fa-paper-plane me-1"></i>Kirim Formulir
-          </button>
-        </div>
-        <div id="notif" class="mt-3"></div>
-      </form>
-    </div>
+      <label>Luasan</label>
+      <input type="text" name="luasan" />
 
-    <!-- Halaman Terima Kasih -->
-    <div class="glass-card thank-you-page" id="thankYouPage">
-      <h2><i class="fas fa-check-circle text-success me-2"></i>Terima Kasih!</h2>
-      <p class="mt-3">Formulir Anda telah berhasil dikirimkan.</p>
-      <button type="button" class="btn btn-primary mt-3" onclick="newForm()">
-        <i class="fas fa-redo me-1"></i>Isi Formulir Baru
-      </button>
-    </div>
+      <label>Nilai Investasi</label>
+      <input type="text" name="nilai_investasi" />
+
+      <div class="signature-box">
+        <label>Tanda Tangan</label>
+        <canvas id="signatureCanvas"></canvas>
+        <button type="button" onclick="clearSignature()">Hapus Tanda Tangan</button>
+      </div>
+
+      <button type="submit">Kirim</button>
+    </form>
+
+    <div id="message"></div>
   </div>
 
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- SignaturePad library -->
   <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
-  <script>
-    // Toggle sektor lainnya
-    const sektorLain = document.getElementById('sektorLain');
-    const inputSektorLain = document.getElementById('inputSektorLain');
-    sektorLain.addEventListener('change', () => {
-      inputSektorLain.style.display = sektorLain.checked ? 'block' : 'none';
-      if (!sektorLain.checked) inputSektorLain.value = '';
-    });
 
-    // Signature Pad
+  <script>
     const canvas = document.getElementById("signatureCanvas");
+    const signaturePad = new SignaturePad(canvas);
+
+    // agar canvas sesuai ukuran
     function resizeCanvas() {
       const ratio = Math.max(window.devicePixelRatio || 1, 1);
       canvas.width = canvas.offsetWidth * ratio;
-      canvas.height = canvas.offsetHeight * ratio;
+      canvas.height = 200 * ratio;
       canvas.getContext("2d").scale(ratio, ratio);
-    }
-    resizeCanvas();
-    window.addEventListener("resize", resizeCanvas);
-    const signaturePad = new SignaturePad(canvas, { penColor: 'black' });
-    document.getElementById("clearSignature").addEventListener("click", () => signaturePad.clear());
-
-    // Reset Form
-    function newForm() {
       signaturePad.clear();
-      document.getElementById('investForm').reset();
-      document.querySelectorAll('.sektor').forEach(cb => cb.checked = false);
-      inputSektorLain.value = '';
-      inputSektorLain.style.display = 'none';
-      document.getElementById("thankYouPage").style.display = "none";
-      document.getElementById("mainForm").style.display = "block";
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    window.onresize = resizeCanvas;
+    resizeCanvas();
+
+    function clearSignature() {
+      signaturePad.clear();
     }
 
-    // Submit
-    const form = document.getElementById("investForm");
-    const notif = document.getElementById("notif");
-    form.addEventListener("submit", async (e) => {
+    // fungsi untuk export tanda tangan dengan background putih (JPEG)
+    function getSignatureWithWhiteBG() {
+      if (signaturePad.isEmpty()) return "";
+
+      const tempCanvas = document.createElement("canvas");
+      tempCanvas.width = canvas.width;
+      tempCanvas.height = canvas.height;
+      const tempCtx = tempCanvas.getContext("2d");
+
+      // isi background putih
+      tempCtx.fillStyle = "#ffffff";
+      tempCtx.fillRect(0, 0, tempCanvas.width, tempCanvas.height);
+
+      // gambar signature di atas putih
+      tempCtx.drawImage(canvas, 0, 0);
+
+      return tempCanvas.toDataURL("image/jpeg", 0.7);
+    }
+
+    document.getElementById("investForm").addEventListener("submit", async function(e) {
       e.preventDefault();
-      const submitBtn = form.querySelector('button[type="submit"]');
-      submitBtn.disabled = true;
-      document.getElementById("spinner").style.display = "inline-block";
+      const formData = new FormData(e.target);
+      const data = {};
+      formData.forEach((val, key) => {
+        if (data[key]) {
+          if (!Array.isArray(data[key])) data[key] = [data[key]];
+          data[key].push(val);
+        } else {
+          data[key] = val;
+        }
+      });
 
-      if (signaturePad.isEmpty()) {
-        notif.innerHTML = `<div class="alert alert-warning">Tanda tangan wajib diisi.</div>`;
-        submitBtn.disabled = false;
-        document.getElementById("spinner").style.display = "none";
-        return;
-      }
-
-      const sektorTerpilih = Array.from(document.querySelectorAll(".sektor:checked")).map(el => el.value);
-      if (sektorTerpilih.length === 0) {
-        notif.innerHTML = `<div class="alert alert-warning">Pilih minimal satu sektor investasi.</div>`;
-        submitBtn.disabled = false;
-        document.getElementById("spinner").style.display = "none";
-        return;
-      }
-      if (sektorTerpilih.includes('Lainnya') && !inputSektorLain.value.trim()) {
-        notif.innerHTML = `<div class="alert alert-warning">Mohon isi detail "Sektor lainnya".</div>`;
-        submitBtn.disabled = false;
-        document.getElementById("spinner").style.display = "none";
-        return;
-      }
-
-      const data = {
-        nama: form.nama.value.trim(),
-        alamat: form.alamat.value.trim(),
-        nama_perusahaan: form.nama_perusahaan.value.trim(),
-        alamat_perusahaan: form.alamat_perusahaan.value.trim(),
-        email: form.email.value.trim(),
-        kontak: form.kontak.value.trim(),
-        sektor: sektorTerpilih,
-        sektor_lainnya: sektorLain.checked ? inputSektorLain.value.trim() : '',
-        lokasi: form.lokasi.value.trim(),
-        jenis_usaha: form.jenis_usaha.value.trim(),
-        luasan: form.luasan.value.trim(),
-        nilai_investasi: form.nilai_investasi.value.trim(),
-        tanda_tangan_base64: signaturePad.toDataURL("image/jpeg", 0.7) // kompres JPEG
-      };
+      // tanda tangan
+      data.tanda_tangan_base64 = getSignatureWithWhiteBG();
 
       try {
         const res = await fetch("/api/submit", {
@@ -253,20 +197,16 @@
 
         const json = await res.json();
         if (json.ok) {
-          document.getElementById("mainForm").style.display = "none";
-          document.getElementById("thankYouPage").style.display = "block";
+          document.getElementById("message").innerHTML = `<div class="success">✅ ${json.message}</div>`;
+          e.target.reset();
+          signaturePad.clear();
         } else {
-          notif.innerHTML = `<div class="alert alert-danger">Gagal: ${json.message}</div>`;
+          document.getElementById("message").innerHTML = `<div class="error">❌ ${json.message}</div>`;
         }
       } catch (err) {
-        notif.innerHTML = `<div class="alert alert-danger">Fetch error: ${err.toString()}</div>`;
-      } finally {
-        submitBtn.disabled = false;
-        document.getElementById("spinner").style.display = "none";
+        document.getElementById("message").innerHTML = `<div class="error">❌ ${err}</div>`;
       }
     });
   </script>
 </body>
 </html>
-
-
