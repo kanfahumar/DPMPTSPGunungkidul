@@ -1,34 +1,33 @@
+export const config = {
+  api: { bodyParser: { sizeLimit: "5mb" } }, // antisipasi tanda tangan base64
+};
+
 export default async function handler(req, res) {
   if (req.method !== "POST") {
+    res.setHeader("Allow", "POST");
     return res.status(405).json({ ok: false, message: "Method not allowed" });
   }
 
   try {
-    // URL WebApp Google Apps Script kamu
-    const GAS_URL = "https://script.google.com/macros/s/AKfycbzq8H6kVVGbkaWL0bJwgeXmZ_3Ryo-EbOkI2Uo6Wb4Q6pL-B_jzI4THrj6HY-ADho8/exec";
+    const response = await fetch(
+      "https://script.google.com/macros/s/AKfycbxQiK7f5flVLtY03GJKua6YiOXXOz7huVe5UADzde0U_4ilA3YUaQtD_8WAZFH_SaUR/exec",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(req.body),
+      }
+    );
 
-    // Forward body ke GAS
-    const response = await fetch(GAS_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(req.body),
-    });
-
-    // Ambil respon sebagai text, lalu parse JSON manual
     const text = await response.text();
     let json;
     try {
       json = JSON.parse(text);
-    } catch (e) {
+    } catch {
       json = { ok: false, message: "Invalid JSON from GAS", raw: text };
     }
 
-    return res.status(200).json(json);
-
+    return res.status(response.status).json(json);
   } catch (err) {
     return res.status(500).json({ ok: false, message: err.toString() });
   }
 }
-
-
-
