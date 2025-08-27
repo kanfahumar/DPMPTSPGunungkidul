@@ -33,17 +33,37 @@
   .form-control::placeholder { color: rgba(255,255,255,0.7)!important; }
 
   /* 🔥 CUSTOM RADIO BUTTON */
-  .form-check-input[type="radio"] {
-    background-color: transparent;
-    border: 2px solid #fff;
-    width: 20px; height: 20px;
-    cursor: pointer;
-  }
-  .form-check-input[type="radio"]:checked {
-    background-color: #000; /* Hitam solid */
-    border-color: gold;     /* Border emas agar kontras */
-    box-shadow: 0 0 4px gold;
-  }
+
+ /* 🔥 RADIO BUTTON CUSTOM STYLING LEBIH KONTRAS */
+.form-check-input[type="radio"] {
+  appearance: none; /* Hilangkan style default */
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: 2px solid #fff;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+  margin-right: 8px;
+}
+
+.form-check-input[type="radio"]:checked {
+  border-color: gold;
+  background-color: transparent;
+  box-shadow: 0 0 5px gold;
+}
+
+.form-check-input[type="radio"]:checked::after {
+  content: "";
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px; height: 12px;
+  background: #5e06ca; /* Lingkaran hitam tebal di tengah */
+  border-radius: 50%;
+}
+
 
   .btn-primary {
     background: linear-gradient(45deg, #bfa46f, #a88f54); border:none; border-radius:50px;
