@@ -1,5 +1,5 @@
 // Ganti URL_API berikut dengan URL Web App dari Google Apps Script kamu
-const URL_API = "https://script.google.com/macros/s/AKfycbxYourDeploymentID/exec";
+const URL_API = "https://script.google.com/macros/s/AKfycbzjuWeNy17sua4p5VuZCfVaUEfzgE8umto-EeYmMUOV9zVpc91Rqpk942yG3kK1la4r/exec";
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("visitorForm");
@@ -44,3 +44,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
