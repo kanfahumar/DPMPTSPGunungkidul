@@ -10,7 +10,7 @@ export default async function handler(req, res) {
 
   try {
     const response = await fetch(
-      "https://script.google.com/macros/s/AKfycbzjuWeNy17sua4p5VuZCfVaUEfzgE8umto-EeYmMUOV9zVpc91Rqpk942yG3kK1la4r/exec",
+      "https://script.google.com/macros/s/AKfycbzoi0YpA1Ns7_n_WxMV1mvP_sgClXrVx4U2caBc5tEOd_NeBorFfGhZLrscUyxA_7z7/exec",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -31,5 +31,6 @@ export default async function handler(req, res) {
     return res.status(500).json({ ok: false, message: err.toString() });
   }
 }
+
 
 
