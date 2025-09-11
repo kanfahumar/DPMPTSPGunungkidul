@@ -5,8 +5,8 @@
     "icon": "fa-file-signature"
   },
   {
-    "title": "Daftar Hadir Pengunjung APKASI",
-    "url": "daftarhadir.html",
+    "title": "Kemilau Peta Potensi Investasi Gunungkidul KEPOIN DUNK",
+    "url": "https://petappi.gunungkidulkab.go.id/mapv2",
     "icon": "fa-users"
     },
  
@@ -21,10 +21,11 @@
     "icon": "fa-lightbulb"},
 {
     "title": "Website DPMPTSP<br>Kabupaten Gunungkidul",
-    "url": "https://dpmpt.gunungkidulkab.go.id/web",
+    "url": "https://dpmpt.gunungkidulkab.go.id/",
     "icon": "fa-lightbulb"}
 
   ]
+
 
 
 
