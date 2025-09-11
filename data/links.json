@@ -1,30 +1,31 @@
 [
   {
+    "title": "Website DPMPTSP<br>Kabupaten Gunungkidul",
+    "url": "https://dpmpt.gunungkidulkab.go.id/",
+    "icon": "fa-lightbulb"},
+  {
     "title": "Formulir Kepeminatan Investasi",
     "url": "formulir.html",
     "icon": "fa-file-signature"
   },
   {
-    "title": "Kemilau Peta Potensi Investasi Gunungkidul KEPOIN DUNK",
+    "title": "Kemilau Peta Potensi Investasi di Gunungkidul<br>KEPOIN DUNK",
     "url": "https://petappi.gunungkidulkab.go.id/mapv2",
     "icon": "fa-users"
     },
  
   {
-    "title": "Produk UMKM Gunungkidul",
-    "url": "subpage.html",
-    "icon": "fa-layer-group"
-  },
-  {
     "title": "Investment Project Ready to Offer<br>(IPRO) 2022-2025",
     "url": "allipro.html",
     "icon": "fa-lightbulb"},
-{
-    "title": "Website DPMPTSP<br>Kabupaten Gunungkidul",
-    "url": "https://dpmpt.gunungkidulkab.go.id/",
-    "icon": "fa-lightbulb"}
 
+  {
+    "title": "Produk UMKM Gunungkidul",
+    "url": "subpage.html",
+    "icon": "fa-layer-group"
+  }
   ]
+
 
 
 
