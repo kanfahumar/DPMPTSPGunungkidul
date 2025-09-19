@@ -16,7 +16,7 @@
     "icon": "fa-lightbulb"},
   {
     "title": "Formulir Kepeminatan Investasi",
-    "url": "formulir.html",
+    "url": "newform.html",
     "icon": "fa-file-signature"
   },
   {
@@ -25,6 +25,7 @@
     "icon": "fa-layer-group"
   }
   ]
+
 
 
 
