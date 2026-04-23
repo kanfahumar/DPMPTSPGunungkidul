@@ -1144,6 +1144,237 @@ html,body{width:100%;height:100%;font-family:'Source Sans 3',sans-serif;backgrou
 </div>
 
 </div><!-- /ss -->
+<!-- ======== EDITOR PANEL ======== -->
+<div id="ep">
+  <div class="eph">
+    <div class="ept">✏️ Editor Konten</div>
+    <div class="eps">PILIH TAB · EDIT · TERAPKAN</div>
+  </div>
+  <div class="eptabs" id="etabs">
+    <div class="eptab active" data-tab="cover">Cover</div>
+    <div class="eptab" data-tab="kem">Kemiskinan</div>
+    <div class="eptab" data-tab="pe">Pertumbuhan</div>
+    <div class="eptab" data-tab="gini">Gini</div>
+    <div class="eptab" data-tab="pdrb">PDRB</div>
+    <div class="eptab" data-tab="tpt">Pengangguran</div>
+    <div class="eptab" data-tab="tpak">Angkt.Kerja</div>
+    <div class="eptab" data-tab="inv">Investasi</div>
+    <div class="eptab" data-tab="penutup">Penutup</div>
+  </div>
+  <div class="epbody" id="epbody"></div>
+  <div class="epfoot">
+    <div class="epsaved" id="epmsg">✓ Diterapkan!</div>
+    <button class="epbtn epbtn-apply" onclick="applyEdits()">✓ Terapkan Perubahan</button>
+    <button class="epbtn epbtn-export" onclick="exportHTML()">⬇ Export &amp; Simpan HTML</button>
+    <button class="epbtn epbtn-reset" onclick="if(confirm('Reset ke data awal?'))location.reload()">↺ Reset ke Data Awal</button>
+    <div class="ephelp">Tekan <strong>E</strong> untuk buka/tutup editor · <strong>P</strong> untuk print · <strong>F</strong> untuk fullscreen</div>
+  </div>
+</div>
+</div><!-- /app -->
+
+<div id="nav">
+  <button class="nb" id="pb" onclick="cs(-1)">&#8592;</button>
+  <div class="nd" id="nd"></div>
+  <span id="snum">1/–</span>
+  <button class="nb" id="nb" onclick="cs(1)">&#8594;</button>
+</div>
+
+<script>
+// ===== SLIDESHOW =====
+const SL=document.querySelectorAll('.slide'),ND=document.getElementById('nd'),SN=document.getElementById('snum'),PR=document.getElementById('prog');
+let cur=0,anim=false;
+SL.forEach((_,i)=>{const d=document.createElement('div');d.className='dot'+(i===0?' active':'');d.onclick=()=>gt(i);ND.appendChild(d);});
+
+function ui(){
+  ND.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active',i===cur));
+  SN.textContent=(cur+1)+'/'+SL.length;
+  document.getElementById('pb').disabled=cur===0;
+  document.getElementById('nb').disabled=cur===SL.length-1;
+  PR.style.width=((cur/(SL.length-1))*100)+'%';
+}
+
+function bars(sl){
+  setTimeout(()=>{
+    // standard bars
+    sl.querySelectorAll('[data-w]').forEach(b=>{
+      if(b.classList.contains('cb')||b.classList.contains('pbf')||b.classList.contains('smk-bar'))
+        b.style.width=b.dataset.w+'%';
+    });
+    // stacked segments
+    sl.querySelectorAll('[data-sw]').forEach(seg=>{
+      seg.style.width=seg.dataset.sw+'%';
+    });
+  },400);
+}
+
+function gt(n,dir){
+  if(anim||n===cur)return;anim=true;
+  const pv=SL[cur],nx=SL[n];
+  const zoom=(cur===0||n===0||cur===SL.length-1||n===SL.length-1||cur%2===1||n%2===1);
+  if(zoom){pv.classList.add('xz');nx.classList.add('active','ez');}
+  else if((dir!==undefined?dir:n-cur)>0){pv.classList.add('xl');nx.classList.add('active','er');}
+  else{pv.classList.add('xr');nx.classList.add('active','el');}
+  setTimeout(()=>{pv.classList.remove('active','xz','xl','xr');nx.classList.remove('ez','er','el');cur=n;ui();bars(nx);anim=false;},700);
+}
+function cs(d){const n=cur+d;if(n>=0&&n<SL.length)gt(n,d);}
+document.addEventListener('keydown',e=>{
+  if(['INPUT','TEXTAREA'].includes(document.activeElement.tagName))return;
+  if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' '){e.preventDefault();cs(1);}
+  if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();cs(-1);}
+  if(e.key==='f'||e.key==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen();}
+  if(e.key==='p'||e.key==='P')window.print();
+  if(e.key==='e'||e.key==='E')toggleEd();
+});
+let tx=null;
+document.addEventListener('touchstart',e=>{tx=e.touches[0].clientX;});
+document.addEventListener('touchend',e=>{if(!tx)return;const dx=tx-e.changedTouches[0].clientX;if(Math.abs(dx)>50)cs(dx>0?1:-1);tx=null;});
+ui();bars(SL[0]);PR.style.width='0%';
+
+// ===== EDITOR =====
+let edOpen=false;
+function toggleEd(){
+  edOpen=!edOpen;
+  document.getElementById('ep').classList.toggle('open',edOpen);
+  const b=document.getElementById('etbtn');b.classList.toggle('active',edOpen);
+  b.textContent=edOpen?'✕ Tutup Editor':'✏️ Mode Editor';
+}
+
+const TABS={
+  // NOTE: key s1=Kemiskinan(Ind.04), s2=Pertumbuhan(Ind.05), s3=Gini(Ind.06),
+  //       s4=PDRB(Ind.07), s5=Pengangguran(Ind.08), s6=TPAK(Ind.09)
+  cover:[
+    {l:'Tag Instansi',k:'c.tag'},{l:'Judul Baris 1',k:'c.t1'},{l:'Judul Baris 2 (emas)',k:'c.t2'},
+    {l:'Subjudul',k:'c.sub'},{l:'Teks Sumber',k:'c.src'},
+  ],
+  kem:[
+    {l:'Judul Seksi',k:'s1.title'},{l:'Deskripsi',k:'s1.desc'},{l:'Judul Chart',k:'s1.ct'},{l:'Sub-judul Chart',k:'s1.cs'},
+    {l:'·',type:'d'},
+    {l:'2021 Nilai',k:'k21',sync:'k21l'},{l:'2021 Bar (0-100)',k:'k21',type:'bw'},
+    {l:'2022 Nilai',k:'k22',sync:'k22l'},{l:'2022 Bar (0-100)',k:'k22',type:'bw'},
+    {l:'2023 Nilai',k:'k23',sync:'k23l'},{l:'2023 Bar (0-100)',k:'k23',type:'bw'},
+    {l:'2024 Nilai',k:'k24',sync:'k24l'},{l:'2024 Bar (0-100)',k:'k24',type:'bw'},
+    {l:'2025 Nilai',k:'k25',sync:'k25l'},{l:'2025 Bar (0-100)',k:'k25',type:'bw'},
+    {l:'Insight',k:'k.ins',type:'ta'},
+  ],
+  pe:[
+    {l:'Judul Seksi',k:'s2.title'},{l:'Deskripsi',k:'s2.desc'},{l:'Judul Chart',k:'s2.ct'},{l:'Sub-judul',k:'s2.cs'},
+    {l:'·',type:'d'},
+    {l:'2021',k:'pe21',sync:'pe21l'},{l:'2021 Bar',k:'pe21',type:'bw'},
+    {l:'2022',k:'pe22',sync:'pe22l'},{l:'2022 Bar',k:'pe22',type:'bw'},
+    {l:'2023',k:'pe23',sync:'pe23l'},{l:'2023 Bar',k:'pe23',type:'bw'},
+    {l:'2024',k:'pe24',sync:'pe24l'},{l:'2024 Bar',k:'pe24',type:'bw'},
+    {l:'2025',k:'pe25',sync:'pe25l'},{l:'2025 Bar',k:'pe25',type:'bw'},
+    {l:'Insight',k:'pe.ins',type:'ta'},
+  ],
+  gini:[
+    {l:'Judul Seksi',k:'s3.title'},{l:'Deskripsi',k:'s3.desc'},{l:'Judul Chart',k:'s3.ct'},
+    {l:'·',type:'d'},
+    {l:'Gini 2021',k:'g21'},{l:'Gini 2022',k:'g22'},{l:'Gini 2023',k:'g23'},
+    {l:'Gini 2024',k:'g24'},{l:'Gini 2025',k:'g25'},{l:'Insight',k:'g.ins',type:'ta'},
+  ],
+  pdrb:[
+    {l:'Judul Seksi',k:'s4.title'},{l:'Deskripsi',k:'s4.desc'},{l:'Judul Chart',k:'s4.ct'},
+    {l:'·',type:'d'},
+    {l:'Pertanian (nilai)',k:'p1'},{l:'Konstruksi (nilai)',k:'p2'},{l:'Info & Kom (nilai)',k:'p3'},
+    {l:'Perdagangan (nilai)',k:'p4'},{l:'Industri (nilai)',k:'p5'},{l:'Insight',k:'p.ins',type:'ta'},
+  ],
+  tpt:[
+    {l:'Judul Seksi',k:'s5.title'},{l:'Deskripsi',k:'s5.desc'},{l:'Judul Chart',k:'s5.ct'},
+    {l:'·',type:'d'},
+    {l:'2021',k:'t21',sync:'t21l'},{l:'2021 Bar',k:'t21',type:'bw'},
+    {l:'2022',k:'t22',sync:'t22l'},{l:'2022 Bar',k:'t22',type:'bw'},
+    {l:'2023',k:'t23',sync:'t23l'},{l:'2023 Bar',k:'t23',type:'bw'},
+    {l:'2024',k:'t24',sync:'t24l'},{l:'2024 Bar',k:'t24',type:'bw'},
+    {l:'2025',k:'t25',sync:'t25l'},{l:'2025 Bar',k:'t25',type:'bw'},
+    {l:'Kartu 1 (Gunungkidul)',k:'tc1'},{l:'Kartu 2 (DIY)',k:'tc2'},{l:'Kartu 3 (Nasional)',k:'tc3'},
+    {l:'Insight',k:'t.ins',type:'ta'},
+  ],
+  tpak:[
+    {l:'Judul Seksi',k:'s6.title'},{l:'Deskripsi',k:'s6.desc'},{l:'Judul Chart',k:'s6.ct'},
+    {l:'·',type:'d'},
+    {l:'2021',k:'tp21',sync:'tp21l'},{l:'2021 Bar',k:'tp21',type:'bw'},
+    {l:'2022',k:'tp22',sync:'tp22l'},{l:'2022 Bar',k:'tp22',type:'bw'},
+    {l:'2023',k:'tp23',sync:'tp23l'},{l:'2023 Bar',k:'tp23',type:'bw'},
+    {l:'2024',k:'tp24',sync:'tp24l'},{l:'2024 Bar',k:'tp24',type:'bw'},
+    {l:'2025',k:'tp25',sync:'tp25l'},{l:'2025 Bar',k:'tp25',type:'bw'},
+    {l:'Insight',k:'tp.ins',type:'ta'},
+  ],
+  inv:[{l:'Insight Investasi',k:'ri.ins',type:'ta'}],
+  penutup:[
+    {l:'Tag Atas',k:'cl.tag'},{l:'Judul Penutup',k:'cl.title'},
+    {l:'·',type:'d'},
+    {l:'Kartu 1 Nilai',k:'cl.v1'},{l:'Kartu 1 Label',k:'cl.l1'},
+    {l:'Kartu 2 Nilai',k:'cl.v2'},{l:'Kartu 2 Label',k:'cl.l2'},
+    {l:'Kartu 3 Nilai',k:'cl.v3'},{l:'Kartu 3 Label',k:'cl.l3'},
+    {l:'Kartu 4 Nilai',k:'cl.v4'},{l:'Kartu 4 Label',k:'cl.l4'},
+    {l:'Kartu 5 Nilai',k:'cl.v5'},{l:'Kartu 5 Label',k:'cl.l5'},
+    {l:'Kartu 6 Nilai',k:'cl.v6'},{l:'Kartu 6 Label',k:'cl.l6'},
+    {l:'Footer',k:'cl.footer',type:'ta'},
+  ],
+};
+
+function gv(k){const el=document.querySelector(`[data-ek="${k}"]`);return el?el.textContent.trim():'';}
+function gbw(k){const el=document.querySelector(`[data-ek="${k}"].cb,[data-ek="${k}"].pbf,[data-ek="${k}"].smk-bar`);return el?el.dataset.w||'':'';}
+
+
+let activeTab='cover';
+function buildTab(tab){
+  const body=document.getElementById('epbody');body.innerHTML='';
+  (TABS[tab]||[]).forEach(f=>{
+    if(f.type==='d'){const d=document.createElement('div');d.className='epstit';d.textContent='Nilai Data';body.appendChild(d);return;}
+    const w=document.createElement('div');w.className='epf';
+    const lb=document.createElement('label');lb.className='epl';lb.textContent=f.l;w.appendChild(lb);
+    if(f.type==='ta'){const ta=document.createElement('textarea');ta.className='epta';ta.dataset.ek=f.k;ta.dataset.ft='t';ta.value=gv(f.k);w.appendChild(ta);}
+    else if(f.type==='bw'){const inp=document.createElement('input');inp.className='epism';inp.type='number';inp.min=0;inp.max=100;inp.step=0.01;inp.dataset.ek=f.k;inp.dataset.ft='bw';inp.value=gbw(f.k);w.appendChild(inp);}
+    else{const inp=document.createElement('input');inp.className='epi';inp.type='text';inp.dataset.ek=f.k;inp.dataset.ft='t';if(f.sync)inp.dataset.sync=f.sync;inp.value=gv(f.k);w.appendChild(inp);}
+    body.appendChild(w);
+  });
+}
+
+document.getElementById('etabs').querySelectorAll('.eptab').forEach(tab=>{
+  tab.addEventListener('click',()=>{
+    document.querySelectorAll('.eptab').forEach(t=>t.classList.remove('active'));
+    tab.classList.add('active');activeTab=tab.dataset.tab;buildTab(activeTab);
+  });
+});
+buildTab('cover');
+
+function applyEdits(){
+  document.querySelectorAll('#epbody [data-ek]').forEach(inp=>{
+    const k=inp.dataset.ek,v=inp.value,ft=inp.dataset.ft;
+    if(ft==='bw'){
+      // FIX: simpan nilai baru ke dataset.w agar exportHTML() ikut ter-update
+      document.querySelectorAll(`[data-ek="${k}"].cb,[data-ek="${k}"].pbf,[data-ek="${k}"].smk-bar`).forEach(b=>{
+        b.dataset.w=v;
+        b.style.width=v+'%';
+      });
+    } else {
+      document.querySelectorAll(`[data-ek="${k}"]`).forEach(el=>{
+        if(!el.classList.contains('cb')&&!el.classList.contains('pbf')&&!el.classList.contains('smk-bar'))
+          el.innerHTML=v.replace(/\n/g,'<br>');
+      });
+      if(inp.dataset.sync)
+        document.querySelectorAll(`[data-ek="${inp.dataset.sync}"]`).forEach(el=>el.innerHTML=v.replace(/\n/g,'<br>'));
+    }
+  });
+  const m=document.getElementById('epmsg');m.style.opacity='1';setTimeout(()=>m.style.opacity='0',2000);
+  // FIX: jangan panggil bars() setelah apply agar nilai bar yang baru diedit tidak ditimpa kembali
+  // bars() hanya dipanggil saat pindah slide
+}
+
+function exportHTML(){
+  const clone=document.documentElement.cloneNode(true);
+  clone.querySelector('#ep').remove();
+  clone.querySelector('#etbtn').remove();
+  // Terapkan semua bar widths ke style agar muncul tanpa JS di file export
+  clone.querySelectorAll('[data-w]').forEach(b=>{b.style.width=b.dataset.w+'%';});
+  clone.querySelectorAll('[data-sw]').forEach(b=>{b.style.width=b.dataset.sw+'%';});
+  // Pastikan semua slide tampak & aktif di mode cetak/export
+  const blob=new Blob(['<!DOCTYPE html>\n'+clone.outerHTML],{type:'text/html'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);
+  a.download='presentasi-gunungkidul-dpmptsp.html';a.click();
+}
+</script>
 
 </body>
 </html>
