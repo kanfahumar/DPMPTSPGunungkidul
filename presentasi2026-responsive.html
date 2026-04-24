@@ -1,0 +1,1556 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Profil Ekonomi dan Investasi Kabupaten Gunungkidul 2021–2025 — Tinjauan indikator kemiskinan, pertumbuhan ekonomi, PDRB, pengangguran, TPAK, dan realisasi investasi. Disusun oleh DPMPTSP Kab. Gunungkidul.">
+<title>Profil Ekonomi &amp; Investasi Kab. Gunungkidul 2021–2025 | DPMPTSP</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0d2340;--blue:#1a4a8a;--mid:#2563b0;--accent:#f0a500;--accent2:#e05c2a;--light:#e8f0fb;--white:#fff;--gray:#c8d6e8;--green:#28a85a;--teal:#0e9e9e;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:100%;height:100%;font-family:'Source Sans 3',sans-serif;background:var(--navy);overflow:hidden;}
+#app{display:flex;width:100vw;height:100vh;}
+#ss{flex:1;position:relative;overflow:hidden;}
+#ep{width:0;overflow:hidden;transition:width .35s ease;background:#070f1c;border-left:1px solid rgba(255,255,255,.08);display:flex;flex-direction:column;flex-shrink:0;}
+#ep.open{width:340px;}
+
+/* slides */
+.slide{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;overflow:hidden;}
+.slide.active{opacity:1;pointer-events:all;}
+.slide.ez{animation:ez .8s cubic-bezier(.22,1,.36,1) forwards;}
+.slide.xz{animation:xz .5s ease-in forwards;}
+.slide.er{animation:er .7s cubic-bezier(.22,1,.36,1) forwards;}
+.slide.xl{animation:xl .5s ease-in forwards;}
+.slide.el{animation:el .7s cubic-bezier(.22,1,.36,1) forwards;}
+.slide.xr{animation:xr .5s ease-in forwards;}
+@keyframes ez{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:scale(1)}}
+@keyframes xz{from{opacity:1;transform:scale(1)}to{opacity:0;transform:scale(1.12)}}
+@keyframes er{from{opacity:0;transform:translateX(80px)}to{opacity:1;transform:translateX(0)}}
+@keyframes xl{from{opacity:1;transform:translateX(0)}to{opacity:0;transform:translateX(-80px)}}
+@keyframes el{from{opacity:0;transform:translateX(-80px)}to{opacity:1;transform:translateX(0)}}
+@keyframes xr{from{opacity:1;transform:translateX(0)}to{opacity:0;transform:translateX(80px)}}
+@keyframes fu{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+
+.bc{background:linear-gradient(135deg,#0a1828 0%,#0d2340 40%,#1a3a6e 80%,#0d2340 100%);}
+.bs{background:linear-gradient(160deg,#0d2340 0%,#122d52 60%,#0a1f3a 100%);}
+.bd{background:linear-gradient(145deg,#0a1828 0%,#0f2540 50%,#112a4a 100%);}
+.bl{background:linear-gradient(145deg,#0f1f0a 0%,#102a10 50%,#0a2010 100%);}
+.bp{background:linear-gradient(145deg,#0a1520 0%,#0d2035 50%,#0a1525 100%);}/* pendidikan - biru gelap */
+.go{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:50px 50px;pointer-events:none;}
+.rg{position:absolute;inset:0;background:radial-gradient(ellipse at 30% 40%,rgba(37,99,176,.25) 0%,transparent 60%);pointer-events:none;}
+.rgg{position:absolute;inset:0;background:radial-gradient(ellipse at 30% 40%,rgba(40,168,90,.15) 0%,transparent 60%);pointer-events:none;}
+.rgp{position:absolute;inset:0;background:radial-gradient(ellipse at 30% 40%,rgba(96,165,250,.18) 0%,transparent 60%);pointer-events:none;}
+
+/* logos */
+.logo-header{position:absolute;top:20px;left:24px;display:flex;align-items:center;gap:12px;z-index:10;}
+.logo-header img{height:48px;width:auto;object-fit:contain;}
+.logo-header .inst-name{font-size:11px;color:rgba(200,214,232,.6);letter-spacing:1px;line-height:1.5;}
+.logo-footer-wrap{position:absolute;bottom:80px;right:24px;z-index:10;opacity:.6;}
+.logo-footer-wrap img{height:36px;width:auto;object-fit:contain;}
+
+/* cover */
+.cover-content{position:relative;z-index:2;text-align:center;max-width:900px;padding:48px;}
+.ctag{display:inline-block;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--accent);border:1px solid rgba(240,165,0,.4);padding:6px 20px;border-radius:2px;margin-bottom:28px;animation:fu .8s .2s both;}
+.ctitle{font-family:'Playfair Display',serif;font-size:clamp(32px,4.5vw,62px);font-weight:900;color:var(--white);line-height:1.05;margin-bottom:12px;animation:fu .8s .4s both;}
+.ctitle span{color:var(--accent);}
+.csub{font-size:clamp(14px,1.8vw,20px);color:var(--gray);font-weight:300;margin-bottom:40px;animation:fu .8s .6s both;}
+.cyears{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;animation:fu .8s .8s both;}
+.cyear{font-family:'Playfair Display',serif;font-size:clamp(16px,2vw,24px);font-weight:700;color:var(--white);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);padding:8px 18px;border-radius:4px;}
+.cdiv{width:100px;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);margin:28px auto;animation:fu .8s .7s both;}
+.csrc{font-size:11px;color:rgba(200,214,232,.5);letter-spacing:1px;animation:fu .8s 1s both;}
+.cdec{position:absolute;border:1px solid rgba(240,165,0,.15);border-radius:50%;}
+.cd1{width:500px;height:500px;top:-150px;right:-150px;}
+.cd2{width:300px;height:300px;bottom:-100px;left:-80px;}
+
+/* section */
+.shdr{position:relative;z-index:2;text-align:center;max-width:700px;padding:48px;}
+.snum{font-family:'Playfair Display',serif;font-size:clamp(80px,12vw,160px);font-weight:900;color:rgba(255,255,255,.04);position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;white-space:nowrap;}
+.sicon{font-size:44px;margin-bottom:16px;display:block;animation:fu .6s .2s both;}
+.slbl{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-bottom:12px;animation:fu .6s .3s both;}
+.stitle{font-family:'Playfair Display',serif;font-size:clamp(26px,4vw,50px);font-weight:700;color:var(--white);line-height:1.15;animation:fu .6s .4s both;}
+.sbar{width:60px;height:3px;background:var(--accent);margin:20px auto;animation:fu .6s .5s both;}
+.sdesc{font-size:15px;color:var(--gray);font-weight:300;animation:fu .6s .6s both;}
+
+/* data slide */
+.ds{position:relative;z-index:2;width:100%;max-width:1100px;padding:32px 48px;}
+.dsh{margin-bottom:24px;animation:fu .6s .1s both;}
+.dslbl{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-bottom:6px;}
+.dstit{font-family:'Playfair Display',serif;font-size:clamp(20px,2.8vw,36px);font-weight:700;color:var(--white);}
+.dssub{font-size:13px;color:var(--gray);font-weight:300;margin-top:4px;}
+
+/* chart bars */
+.cw{display:flex;flex-direction:column;gap:12px;}
+.cr{display:flex;align-items:center;gap:12px;animation:fu .5s both;}
+.cy{font-family:'Playfair Display',serif;font-weight:700;color:var(--accent);font-size:15px;width:40px;text-align:right;flex-shrink:0;}
+.ct{flex:1;height:36px;background:rgba(255,255,255,.05);border-radius:4px;position:relative;overflow:hidden;}
+.cb{height:100%;border-radius:4px;position:absolute;left:0;top:0;display:flex;align-items:center;padding-left:10px;font-size:12px;font-weight:600;color:var(--white);background:linear-gradient(90deg,var(--blue),var(--mid));min-width:50px;transition:width 1s cubic-bezier(.22,1,.36,1);width:0;}
+.cb.red{background:linear-gradient(90deg,#b84a00,var(--accent2));}
+.cb.grn{background:linear-gradient(90deg,#1a6b3a,var(--green));}
+.cb.tel{background:linear-gradient(90deg,#0a5a5a,var(--teal));}
+.cb.pur{background:linear-gradient(90deg,#4a1a8a,#7c3aed);}
+.cb.sky{background:linear-gradient(90deg,#1a4a6a,#3b82f6);}
+.cb.ros{background:linear-gradient(90deg,#6a1a3a,#ec4899);}
+.cv{width:76px;color:var(--gray);font-size:13px;text-align:left;flex-shrink:0;}
+.cn{font-size:11px;color:rgba(200,214,232,.4);margin-top:6px;animation:fu .5s .7s both;}
+
+/* trend cards */
+.tr{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;}
+.tc{flex:1;min-width:110px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:14px 16px;animation:fu .5s both;}
+.tcy{font-size:10px;letter-spacing:2px;color:var(--accent);text-transform:uppercase;margin-bottom:3px;}
+.tcv{font-family:'Playfair Display',serif;font-size:clamp(20px,2.5vw,30px);font-weight:700;color:var(--white);}
+.tcl{font-size:11px;color:var(--gray);margin-top:2px;}
+.tca{font-size:11px;margin-top:5px;}
+.adn{color:#4ade80;}.aup{color:#f87171;}
+
+/* pdrb */
+.pl{display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap;}
+.pdw{flex-shrink:0;display:flex;flex-direction:column;align-items:center;animation:fu .5s .2s both;}
+.pdw svg{width:190px;height:190px;}
+.dll{font-size:11px;color:var(--gray);text-align:center;margin-top:6px;}
+.plist{flex:1;display:flex;flex-direction:column;gap:8px;}
+.pi{display:flex;align-items:center;gap:8px;animation:fu .5s both;}
+.pdot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+.pn{font-size:13px;color:var(--white);flex:1;}
+.pb{width:70px;height:5px;background:rgba(255,255,255,.08);border-radius:3px;position:relative;overflow:hidden;}
+.pbf{height:100%;border-radius:3px;position:absolute;left:0;top:0;transition:width 1s cubic-bezier(.22,1,.36,1);width:0;}
+.pp{font-family:'Playfair Display',serif;font-weight:700;font-size:14px;color:var(--accent);width:60px;text-align:right;}
+
+/* closing */
+.cc{position:relative;z-index:2;text-align:center;max-width:960px;padding:32px 40px;}
+.cct{font-family:'Playfair Display',serif;font-size:clamp(22px,3vw,42px);font-weight:900;color:var(--white);line-height:1.1;margin-bottom:16px;animation:fu .6s .2s both;}
+.ccs{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:14px;animation:fu .6s .4s both;}
+.ccard{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:12px 18px;text-align:center;}
+.ccv{font-family:'Playfair Display',serif;font-size:clamp(16px,2.2vw,26px);font-weight:700;color:var(--accent);}
+.ccl{font-size:10px;color:var(--gray);margin-top:3px;}
+.ccf{font-size:11px;color:rgba(200,214,232,.4);letter-spacing:1px;animation:fu .6s .6s both;}
+
+/* comparison table in closing */
+.cmp-wrap{animation:fu .6s .5s both;margin-bottom:14px;}
+.cmp-table{width:100%;border-collapse:collapse;font-size:12px;}
+.cmp-table th{background:rgba(240,165,0,.12);color:var(--accent);font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:8px 12px;text-align:center;border-bottom:1px solid rgba(240,165,0,.2);}
+.cmp-table th:first-child{text-align:left;}
+.cmp-table td{padding:7px 12px;text-align:center;border-bottom:1px solid rgba(255,255,255,.04);color:var(--light);font-size:12px;}
+.cmp-table td:first-child{text-align:left;color:var(--gray);font-size:11px;}
+.cmp-table .gk-col{color:var(--accent);font-family:'Playfair Display',serif;font-weight:700;font-size:13px;}
+.cmp-table .best{color:#4ade80;}
+.cmp-table .mid{color:#facc15;}
+.cmp-table .low{color:#f87171;}
+
+/* LKPM slides */
+.lkpm-slide{position:relative;z-index:2;width:100%;max-width:1100px;padding:28px 48px;}
+.lkpm-tag{display:inline-block;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#4ade80;border:1px solid rgba(74,222,128,.3);padding:4px 14px;border-radius:2px;margin-bottom:14px;animation:fu .6s .1s both;}
+.lkpm-title{font-family:'Playfair Display',serif;font-size:clamp(20px,2.8vw,34px);font-weight:700;color:var(--white);line-height:1.2;margin-bottom:6px;animation:fu .6s .2s both;}
+.lkpm-sub{font-size:13px;color:rgba(200,214,232,.6);margin-bottom:20px;animation:fu .6s .3s both;}
+.lkpm-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;}
+.lkpm-card{background:rgba(255,255,255,.04);border:1px solid rgba(74,222,128,.15);border-left:3px solid #4ade80;border-radius:6px;padding:16px 18px;animation:fu .5s both;}
+.lkpm-card.orange{border-left-color:var(--accent2);border-color:rgba(224,92,42,.15);}
+.lkpm-card.yellow{border-left-color:var(--accent);border-color:rgba(240,165,0,.15);}
+.lkpm-card.blue{border-left-color:#60a5fa;border-color:rgba(96,165,250,.15);}
+.lkpm-card.red{border-left-color:#f87171;border-color:rgba(248,113,113,.15);}
+.lkpm-num{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#4ade80;margin-bottom:6px;}
+.lkpm-card.orange .lkpm-num{color:var(--accent2);}
+.lkpm-card.yellow .lkpm-num{color:var(--accent);}
+.lkpm-card.blue .lkpm-num{color:#60a5fa;}
+.lkpm-card.red .lkpm-num{color:#f87171;}
+.lkpm-ctitle{font-size:13px;font-weight:600;color:var(--white);margin-bottom:6px;}
+.lkpm-cdesc{font-size:12px;color:rgba(200,214,232,.7);line-height:1.55;}
+
+/* strategy slide */
+.strat-wrap{display:flex;flex-direction:column;gap:12px;margin-top:4px;}
+.strat-item{display:flex;gap:14px;align-items:flex-start;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:6px;padding:14px 16px;animation:fu .5s both;}
+.strat-icon{font-size:28px;flex-shrink:0;margin-top:2px;}
+.strat-body{}
+.strat-title{font-size:13px;font-weight:600;color:#4ade80;margin-bottom:4px;}
+.strat-desc{font-size:12px;color:rgba(200,214,232,.75);line-height:1.55;}
+
+/* misc */
+.hl{width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(240,165,0,.3),transparent);margin:12px 0;}
+.ib{background:linear-gradient(135deg,rgba(240,165,0,.12),rgba(224,92,42,.08));border:1px solid rgba(240,165,0,.25);border-left:3px solid var(--accent);border-radius:6px;padding:12px 16px;font-size:13px;color:var(--light);margin-top:12px;animation:fu .5s .8s both;}
+.ib.green{background:linear-gradient(135deg,rgba(40,168,90,.12),rgba(14,158,158,.08));border-color:rgba(74,222,128,.25);border-left-color:#4ade80;}
+.ib.blue{background:linear-gradient(135deg,rgba(37,99,176,.12),rgba(59,130,246,.08));border-color:rgba(96,165,250,.25);border-left-color:#60a5fa;}
+
+/* realisasi table */
+.rtable{width:100%;border-collapse:collapse;margin-top:10px;animation:fu .5s .3s both;}
+.rtable th{background:rgba(240,165,0,.15);color:var(--accent);font-size:12px;letter-spacing:1px;text-transform:uppercase;padding:10px 12px;text-align:right;border-bottom:1px solid rgba(240,165,0,.2);}
+.rtable th:first-child{text-align:center;}
+.rtable td{font-size:13px;color:var(--light);padding:9px 12px;text-align:right;border-bottom:1px solid rgba(255,255,255,.05);}
+.rtable td:first-child{text-align:center;color:var(--accent);font-family:'Playfair Display',serif;font-weight:700;}
+.rtable tr:hover td{background:rgba(255,255,255,.03);}
+.rtable .total-row td{color:#4ade80;font-weight:600;border-top:1px solid rgba(74,222,128,.2);}
+
+/* pendidikan specific */
+.pend-tag{display:inline-block;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#60a5fa;border:1px solid rgba(96,165,250,.3);padding:4px 14px;border-radius:2px;margin-bottom:14px;animation:fu .6s .1s both;}
+.pend-title{font-family:'Playfair Display',serif;font-size:clamp(20px,2.8vw,34px);font-weight:700;color:var(--white);line-height:1.2;margin-bottom:6px;animation:fu .6s .2s both;}
+.pend-sub{font-size:13px;color:rgba(200,214,232,.6);margin-bottom:18px;animation:fu .6s .3s both;}
+
+/* stacked bar for SMA jurusan */
+.sbar-wrap{display:flex;flex-direction:column;gap:10px;margin-bottom:12px;}
+.sbar-row{display:flex;align-items:center;gap:10px;animation:fu .5s both;}
+.sbar-yr{font-family:'Playfair Display',serif;font-weight:700;color:var(--accent);font-size:14px;width:42px;text-align:right;flex-shrink:0;}
+.sbar-track{flex:1;height:32px;background:rgba(255,255,255,.05);border-radius:4px;display:flex;overflow:hidden;}
+.sbar-seg{height:100%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;color:rgba(255,255,255,.9);transition:width 1s cubic-bezier(.22,1,.36,1);width:0;overflow:hidden;white-space:nowrap;}
+.sbar-total{width:55px;color:var(--gray);font-size:12px;text-align:left;flex-shrink:0;}
+.sbar-legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px;animation:fu .5s .6s both;}
+.sbar-leg-item{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--gray);}
+.sbar-leg-dot{width:10px;height:10px;border-radius:2px;flex-shrink:0;}
+
+/* SMK top10 bar */
+.smk-row{display:flex;align-items:center;gap:10px;animation:fu .5s both;}
+.smk-name{font-size:11px;color:var(--light);width:220px;flex-shrink:0;text-align:right;line-height:1.3;}
+.smk-track{flex:1;height:28px;background:rgba(255,255,255,.05);border-radius:4px;position:relative;overflow:hidden;}
+.smk-bar{height:100%;border-radius:4px;position:absolute;left:0;top:0;display:flex;align-items:center;padding-left:8px;font-size:11px;font-weight:600;color:var(--white);transition:width 1s cubic-bezier(.22,1,.36,1);width:0;}
+.smk-val{width:50px;color:var(--gray);font-size:11px;text-align:left;flex-shrink:0;}
+
+/* kemiskinan jiwa */
+.jiwa-wrap{display:flex;gap:16px;margin-top:14px;flex-wrap:wrap;}
+.jiwa-card{flex:1;min-width:130px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:12px 14px;}
+.jiwa-yr{font-size:10px;letter-spacing:2px;color:var(--accent);text-transform:uppercase;margin-bottom:4px;}
+.jiwa-miskin{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:#f87171;}
+.jiwa-total{font-size:11px;color:var(--gray);margin-top:2px;}
+.jiwa-pct{font-size:10px;color:rgba(200,214,232,.5);margin-top:1px;}
+
+/* nav */
+#nav{position:fixed;bottom:28px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:10px;background:rgba(13,35,64,.92);border:1px solid rgba(255,255,255,.1);border-radius:50px;padding:8px 18px;z-index:100;backdrop-filter:blur(12px);}
+.nb{background:none;border:none;cursor:pointer;color:var(--gray);font-size:18px;padding:5px 8px;border-radius:50%;transition:color .2s,background .2s;line-height:1;}
+.nb:hover{color:var(--white);background:rgba(255,255,255,.08);}
+.nb:disabled{opacity:.3;cursor:default;}
+.nd{display:flex;gap:5px;align-items:center;}
+.dot{width:6px;height:6px;border-radius:50%;background:rgba(200,214,232,.25);cursor:pointer;transition:background .3s,transform .3s;}
+.dot.active{background:var(--accent);transform:scale(1.3);}
+#snum{font-size:11px;color:var(--gray);min-width:40px;text-align:center;}
+#prog{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));z-index:200;transition:width .4s;}
+
+/* edit btn */
+#etbtn{position:fixed;top:16px;right:16px;z-index:300;background:rgba(13,35,64,.9);border:1px solid rgba(240,165,0,.35);color:var(--accent);font-size:12px;font-family:'Source Sans 3',sans-serif;font-weight:600;letter-spacing:1px;cursor:pointer;padding:8px 16px;border-radius:6px;backdrop-filter:blur(10px);transition:background .2s;}
+#etbtn:hover{background:rgba(240,165,0,.15);}
+#etbtn.active{background:rgba(240,165,0,.2);color:var(--white);}
+
+/* editor */
+.eph{padding:16px 18px 12px;border-bottom:1px solid rgba(255,255,255,.07);flex-shrink:0;}
+.ept{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--white);margin-bottom:3px;}
+.eps{font-size:10px;color:rgba(200,214,232,.5);letter-spacing:1px;}
+.eptabs{display:flex;border-bottom:1px solid rgba(255,255,255,.07);flex-shrink:0;overflow-x:auto;}
+.eptab{padding:9px 12px;font-size:11px;font-weight:600;letter-spacing:.5px;color:rgba(200,214,232,.45);cursor:pointer;white-space:nowrap;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;flex-shrink:0;}
+.eptab:hover{color:var(--gray);}
+.eptab.active{color:var(--accent);border-bottom-color:var(--accent);}
+.epbody{flex:1;overflow-y:auto;padding:14px 16px;}
+.epbody::-webkit-scrollbar{width:4px;}
+.epbody::-webkit-scrollbar-thumb{background:rgba(255,255,255,.1);border-radius:2px;}
+.epstit{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin:14px 0 8px;padding-bottom:5px;border-bottom:1px solid rgba(240,165,0,.15);}
+.epf{margin-bottom:9px;}
+.epl{font-size:11px;color:rgba(200,214,232,.6);margin-bottom:3px;display:block;}
+.epi,.epta{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:5px;color:var(--white);font-family:'Source Sans 3',sans-serif;font-size:12px;padding:7px 9px;outline:none;transition:border-color .2s;}
+.epi:focus,.epta:focus{border-color:rgba(240,165,0,.5);}
+.epta{resize:vertical;min-height:58px;}
+.epism{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:4px;color:var(--white);font-family:'Source Sans 3',sans-serif;font-size:11px;padding:5px 7px;outline:none;transition:border-color .2s;}
+.epism:focus{border-color:rgba(240,165,0,.5);}
+.epfoot{padding:12px 16px;border-top:1px solid rgba(255,255,255,.07);display:flex;flex-direction:column;gap:7px;flex-shrink:0;}
+.epbtn{width:100%;padding:9px;border-radius:6px;border:none;cursor:pointer;font-family:'Source Sans 3',sans-serif;font-size:12px;font-weight:600;letter-spacing:.5px;transition:opacity .2s,transform .1s;}
+.epbtn:active{transform:scale(.98);}
+.epbtn-apply{background:linear-gradient(135deg,#1a6b3a,var(--green));color:#fff;}
+.epbtn-export{background:linear-gradient(135deg,#1a4a8a,var(--mid));color:#fff;}
+.epbtn-reset{background:rgba(255,255,255,.06);color:var(--gray);border:1px solid rgba(255,255,255,.1);}
+.epsaved{font-size:11px;color:#4ade80;text-align:center;opacity:0;transition:opacity .3s;height:14px;}
+.ephelp{font-size:10px;color:rgba(200,214,232,.3);line-height:1.5;text-align:center;}
+
+@media print{
+  html,body{overflow:visible;height:auto;width:210mm;}
+  #nav,#prog,#etbtn,#ep{display:none!important;}
+  #app{display:block;}
+  #ss{overflow:visible;width:auto;height:auto;}
+  .slide{position:relative!important;opacity:1!important;pointer-events:all!important;page-break-after:always;width:210mm;min-height:148mm;display:flex!important;}
+  .cb,.pbf,.smk-bar,.sbar-seg{transition:none!important;}
+  body{background:#0d2340;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+}
+
+/* ===== RESPONSIVE ===== */
+
+/* Tablet landscape & kecil (≤1024px) */
+@media (max-width:1024px){
+  #ep.open{width:300px;}
+  .ds{padding:24px 32px;max-width:100%;}
+  .cover-content{padding:32px 24px;max-width:100%;}
+  .ctitle{font-size:clamp(26px,5vw,50px);}
+  .lkpm-slide{padding:20px 32px;}
+  .smk-name{width:160px;font-size:10px;}
+  .cmp-table{font-size:11px;}
+  .cmp-table th,.cmp-table td{padding:6px 8px;}
+}
+
+/* Ponsel & tablet portrait (≤768px) */
+@media (max-width:768px){
+  /* Overflow: izinkan scroll vertikal di dalam slide agar konten tidak terpotong */
+  html,body{overflow:hidden;}
+  .slide{align-items:flex-start;overflow-y:auto;overflow-x:hidden;padding-bottom:72px;}
+  .slide.active{display:flex;}
+
+  /* Sembunyikan editor panel — terlalu sempit untuk layar kecil */
+  #ep,#etbtn{display:none!important;}
+
+  /* Progress & nav */
+  #prog{height:2px;}
+  #nav{bottom:12px;padding:6px 12px;gap:6px;border-radius:40px;}
+  .nb{font-size:16px;padding:4px 6px;}
+  #snum{font-size:10px;min-width:32px;}
+  .nd{gap:4px;}
+  .dot{width:5px;height:5px;}
+
+  /* Cover */
+  .cover-content{padding:80px 20px 24px;text-align:center;max-width:100%;}
+  .ctitle{font-size:clamp(24px,7vw,40px);}
+  .csub{font-size:clamp(13px,3.5vw,16px);}
+  .cyear{font-size:14px;padding:6px 12px;}
+  .logo-header{top:14px;left:14px;}
+  .logo-header img{height:36px;}
+  .logo-footer-wrap{bottom:72px;right:12px;}
+  .logo-footer-wrap img{height:28px;}
+  .cd1{width:250px;height:250px;top:-80px;right:-80px;}
+  .cd2{width:160px;height:160px;bottom:-50px;left:-40px;}
+
+  /* Section header */
+  .shdr{padding:24px 20px;}
+  .sicon{font-size:32px;}
+  .stitle{font-size:clamp(22px,6vw,36px);}
+  .sdesc{font-size:13px;}
+  .snum{font-size:clamp(60px,18vw,100px);}
+
+  /* Data slide */
+  .ds{padding:14px 16px;max-width:100%;}
+  .dsh{margin-bottom:14px;}
+  .dstit{font-size:clamp(16px,5vw,24px);}
+  .dssub{font-size:11px;}
+
+  /* Chart bars */
+  .cr{gap:6px;}
+  .cy{font-size:12px;width:34px;}
+  .ct{height:28px;}
+  .cb{font-size:10px;min-width:36px;}
+  .cv{font-size:11px;width:56px;}
+
+  /* Trend cards */
+  .tr{gap:8px;}
+  .tc{padding:10px 12px;min-width:80px;}
+  .tcv{font-size:clamp(16px,4.5vw,22px);}
+
+  /* PDRB donut */
+  .pl{flex-direction:column;gap:16px;}
+  .pdw svg{width:140px;height:140px;}
+  .pn{font-size:12px;}
+  .pp{font-size:12px;}
+
+  /* Tabel investasi — scroll horizontal */
+  .rtable-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  .rtable{min-width:480px;}
+  .rtable th,.rtable td{font-size:11px;padding:7px 8px;}
+
+  /* Comparison table — scroll horizontal */
+  .cmp-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  .cmp-table{min-width:380px;font-size:10px;}
+  .cmp-table th,.cmp-table td{padding:5px 7px;}
+
+  /* LKPM slide */
+  .lkpm-slide{padding:14px 16px;}
+  .lkpm-grid{grid-template-columns:1fr;}
+  .lkpm-title{font-size:clamp(18px,5vw,26px);}
+  .lkpm-num{font-size:18px;}
+  .lkpm-ctitle{font-size:12px;}
+  .lkpm-cdesc{font-size:11px;}
+
+  /* Strategy */
+  .strat-item{padding:10px 12px;}
+  .strat-icon{font-size:22px;}
+  .strat-title{font-size:12px;}
+  .strat-desc{font-size:11px;}
+
+  /* SMK bars */
+  .smk-name{width:110px;font-size:9px;}
+  .smk-bar{font-size:9px;}
+  .smk-val{font-size:10px;width:40px;}
+
+  /* Jiwa cards */
+  .jiwa-wrap{gap:8px;}
+  .jiwa-card{min-width:100px;padding:10px 10px;}
+  .jiwa-miskin{font-size:15px;}
+
+  /* Sebaran bar labels (lebar fixed 170px jadi auto) */
+  .cr .cy[style*="width:170px"],.cr .cy[style*="width:220px"]{width:auto!important;max-width:90px;font-size:9px!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+
+  /* Closing */
+  .cc{padding:20px 16px;max-width:100%;}
+  .cct{font-size:clamp(18px,5vw,30px);}
+  .ccard{padding:10px 12px;}
+  .ccv{font-size:clamp(13px,3.8vw,20px);}
+
+  /* Perizinan 2-kolom → 1 kolom */
+  .slide .ds [style*="grid-template-columns:1fr 1fr"]{
+    display:block!important;
+  }
+  .slide .ds [style*="grid-template-columns:1fr 1fr"] > div + div{
+    margin-top:20px;
+  }
+  /* KBLI 2-kolom (220px + 1fr) → 1 kolom */
+  .slide .ds [style*="grid-template-columns:220px"]{
+    display:block!important;
+  }
+  .slide .ds [style*="grid-template-columns:220px"] > div + div{
+    margin-top:16px;
+  }
+
+  /* Stacked bar */
+  .sbar-yr{width:34px;font-size:12px;}
+  .sbar-track{height:26px;}
+  .sbar-seg{font-size:9px;}
+  .sbar-total{width:44px;font-size:11px;}
+
+  /* Insight box */
+  .ib{font-size:12px;padding:10px 12px;}
+}
+
+/* Ponsel sangat kecil / portrait ketat (≤480px) */
+@media (max-width:480px){
+  .ds{padding:10px 12px;}
+  .dstit{font-size:clamp(14px,5vw,20px);}
+  .cover-content{padding:72px 14px 20px;}
+  .ctitle{font-size:clamp(20px,7.5vw,34px);}
+  .shdr{padding:20px 14px;}
+  .cr .cy[style*="width:170px"],.cr .cy[style*="width:220px"]{max-width:72px!important;}
+  .jiwa-card{min-width:80px;}
+  .tc{min-width:70px;}
+}
+
+/* Landscape khusus ponsel (tinggi ≤500px, lebar > tinggi) */
+@media (max-height:500px) and (orientation:landscape){
+  .slide{padding-bottom:56px;align-items:flex-start;overflow-y:auto;}
+  .cover-content{padding:60px 32px 16px;}
+  .ctitle{font-size:clamp(20px,4.5vh,36px);}
+  .csub{font-size:clamp(11px,2.5vh,15px);margin-bottom:20px;}
+  .cyear{font-size:12px;padding:4px 10px;}
+  .cdiv{margin:14px auto;}
+  .shdr{padding:16px 24px;}
+  .sicon{font-size:26px;margin-bottom:8px;}
+  .stitle{font-size:clamp(18px,4.5vh,30px);}
+  .sdesc{font-size:12px;}
+  .snum{font-size:clamp(50px,14vh,90px);}
+  .ds{padding:10px 20px;}
+  .dstit{font-size:clamp(14px,3.5vh,22px);}
+  #nav{bottom:8px;padding:5px 10px;}
+  .lkpm-grid{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;}
+}
+</style>
+</head>
+<body>
+<div id="prog"></div>
+
+<div id="app">
+<div id="ss">
+
+<!-- ============ SLIDE 0: COVER ============ -->
+<div class="slide bc active">
+  <div class="go"></div><div class="rg"></div>
+  <div class="cdec cd1"></div><div class="cdec cd2"></div>
+  <div class="logo-header">
+    <img src="assets/logogk.png" alt="Logo Gunungkidul" onerror="this.style.display='none'">
+    <div class="inst-name">PEMERINTAH KABUPATEN<br><strong style="color:var(--accent)">GUNUNGKIDUL</strong></div>
+  </div>
+  <div class="cover-content">
+    <div class="ctag" data-ek="c.tag">DPMPTSP · Kabupaten Gunungkidul · DIY</div>
+    <h1 class="ctitle"><span data-ek="c.t1">Profil Ekonomi &amp; Investasi</span><br><span data-ek="c.t2" style="color:var(--accent)">Kabupaten Gunungkidul</span></h1>
+    <p class="csub" data-ek="c.sub">Tinjauan Indikator Pembangunan Ekonomi, Sosial &amp; Realisasi Investasi</p>
+    <div class="cdiv"></div>
+    <div class="cyears"><span class="cyear">2021</span><span class="cyear">2022</span><span class="cyear">2023</span><span class="cyear">2024</span><span class="cyear">2025</span></div>
+    <br>
+    <p class="csrc" data-ek="c.src">Sumber: BPS Kabupaten Gunungkidul · Kabupaten Gunungkidul Dalam Angka 2022-2026</p>
+  </div>
+  <div class="logo-footer-wrap">
+    <img src="assets/logo-footer.png" alt="Logo DPMPTSP" onerror="this.style.display='none'">
+  </div>
+</div>
+<!-- ============ SLIDE 25: PERIZINAN 2021-2025 ============ -->
+<div class="slide bd">
+  <div class="go"></div><div class="rg"></div>
+  <div class="ds">
+    <div class="dsh">
+      <div class="dslbl">Perizinan · Sumber: DPMPTSP Kabupaten Gunungkidul</div>
+      <div class="dstit">Jumlah Perizinan Tahun 2021–2025</div>
+      <div class="dssub">Perizinan Berusaha dan Non-Berusaha yang diterbitkan DPMPTSP</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:10px;">
+      <!-- Perizinan Berusaha -->
+      <div>
+        <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);border-bottom:1px solid rgba(240,165,0,.2);padding-bottom:8px;margin-bottom:12px;">📋 Perizinan Berusaha</div>
+        <div class="cw">
+          <div class="cr" style="animation-delay:.10s"><div class="cy">2021</div><div class="ct"><div class="cb grn" data-w="13.5">1.944</div></div><div class="cv">1.944</div></div>
+          <div class="cr" style="animation-delay:.20s"><div class="cy">2022</div><div class="ct"><div class="cb grn" data-w="41.2">5.949</div></div><div class="cv">5.949</div></div>
+          <div class="cr" style="animation-delay:.30s"><div class="cy">2023</div><div class="ct"><div class="cb grn" data-w="100">14.423</div></div><div class="cv">14.423</div></div>
+          <div class="cr" style="animation-delay:.40s"><div class="cy">2024</div><div class="ct"><div class="cb grn" data-w="89.2">12.862</div></div><div class="cv">12.862</div></div>
+          <div class="cr" style="animation-delay:.50s"><div class="cy">2025</div><div class="ct"><div class="cb grn" data-w="54.8">7.901</div></div><div class="cv">7.901</div></div>
+        </div>
+        <div class="tr" style="margin-top:14px;">
+          <div class="tc" style="animation-delay:.6s"><div class="tcy">Total 5 Tahun</div><div class="tcv" style="color:#4ade80;">43.079</div><div class="tcl">Perizinan Berusaha</div></div>
+          <div class="tc" style="animation-delay:.7s"><div class="tcy">Tertinggi</div><div class="tcv">14.423</div><div class="tcl">Tahun 2023</div></div>
+        </div>
+      </div>
+      <!-- Perizinan Non-Berusaha -->
+      <div>
+        <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--teal);border-bottom:1px solid rgba(14,158,158,.2);padding-bottom:8px;margin-bottom:12px;">📝 Perizinan Non-Berusaha</div>
+        <div class="cw">
+          <div class="cr" style="animation-delay:.10s"><div class="cy">2021</div><div class="ct"><div class="cb tel" data-w="64.5">1.533</div></div><div class="cv">1.533</div></div>
+          <div class="cr" style="animation-delay:.20s"><div class="cy">2022</div><div class="ct"><div class="cb tel" data-w="100">2.375</div></div><div class="cv">2.375</div></div>
+          <div class="cr" style="animation-delay:.30s"><div class="cy">2023</div><div class="ct"><div class="cb tel" data-w="81.2">1.928</div></div><div class="cv">1.928</div></div>
+          <div class="cr" style="animation-delay:.40s"><div class="cy">2024</div><div class="ct"><div class="cb tel" data-w="77.3">1.837</div></div><div class="cv">1.837</div></div>
+          <div class="cr" style="animation-delay:.50s"><div class="cy">2025</div><div class="ct"><div class="cb tel" data-w="73.5">1.746</div></div><div class="cv">1.746</div></div>
+        </div>
+        <div class="tr" style="margin-top:14px;">
+          <div class="tc" style="animation-delay:.6s"><div class="tcy">Total 5 Tahun</div><div class="tcv" style="color:var(--teal);">9.419</div><div class="tcl">Perizinan Non-Berusaha</div></div>
+          <div class="tc" style="animation-delay:.7s"><div class="tcy">Tertinggi</div><div class="tcv">2.375</div><div class="tcl">Tahun 2022</div></div>
+        </div>
+      </div>
+    </div>
+    <p class="cn" style="margin-top:14px;">Sumber: DPMPTSP Kabupaten Gunungkidul · Data Perizinan 2021–2025</p>
+  </div>
+</div>
+
+<!-- ============ SLIDE 3: 5 BESAR KBLI 2025 ============ -->
+<div class="slide bd">
+  <div class="go"></div><div class="rg"></div>
+  <div class="ds">
+    <div class="dsh">
+      <div class="dslbl">Perizinan · Sumber: DPMPTSP Kabupaten Gunungkidul</div>
+      <div class="dstit">5 Besar Klasifikasi Baku Lapangan Usaha Indonesia (KBLI)</div>
+      <div class="dssub">Jenis KBLI terbanyak yang diajukan oleh pelaku usaha di DPMPTSP Kabupaten Gunungkidul tahun 2025</div>
+    </div>
+    <div style="display:grid;grid-template-columns:220px 1fr;gap:28px;margin-top:10px;align-items:start;">
+      <!-- Bar chart kiri -->
+      <div>
+        <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);border-bottom:1px solid rgba(240,165,0,.2);padding-bottom:8px;margin-bottom:12px;">📊 Jumlah Pengajuan</div>
+        <div class="cw">
+          <div class="cr" style="animation-delay:.10s"><div class="cy" style="width:52px;font-size:10px;text-align:right">56103</div><div class="ct"><div class="cb grn" data-w="100">925</div></div></div>
+          <div class="cr" style="animation-delay:.20s"><div class="cy" style="width:52px;font-size:10px;text-align:right">10794</div><div class="ct"><div class="cb" data-w="78.9">730</div></div></div>
+          <div class="cr" style="animation-delay:.30s"><div class="cy" style="width:52px;font-size:10px;text-align:right">47112</div><div class="ct"><div class="cb tel" data-w="72.3">669</div></div></div>
+          <div class="cr" style="animation-delay:.40s"><div class="cy" style="width:52px;font-size:10px;text-align:right">01411</div><div class="ct"><div class="cb pur" data-w="55.5">513</div></div></div>
+          <div class="cr" style="animation-delay:.50s"><div class="cy" style="width:52px;font-size:10px;text-align:right">56102</div><div class="ct"><div class="cb red" data-w="39.4">364</div></div></div>
+        </div>
+      </div>
+      <!-- Detail KBLI kanan -->
+      <div style="display:flex;flex-direction:column;gap:7px;">
+        <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--teal);border-bottom:1px solid rgba(14,158,158,.2);padding-bottom:8px;margin-bottom:2px;">📋 Uraian KBLI</div>
+        <!-- KBLI 56103 -->
+        <div style="display:flex;gap:10px;align-items:flex-start;background:rgba(255,255,255,.04);border:1px solid rgba(40,168,90,.15);border-left:3px solid #4ade80;border-radius:6px;padding:8px 12px;animation:fu .5s .10s both;">
+          <div style="flex-shrink:0;text-align:center;min-width:54px;">
+            <div style="font-size:8px;letter-spacing:1px;color:#4ade80;text-transform:uppercase;">KBLI</div>
+            <div style="font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:#4ade80;line-height:1.2;">56103</div>
+            <div style="font-family:'Playfair Display',serif;font-size:16px;font-weight:900;color:var(--white);line-height:1.1;">925</div>
+          </div>
+          <div style="flex:1;border-left:1px solid rgba(255,255,255,.07);padding-left:10px;">
+            <div style="font-size:12px;font-weight:600;color:var(--white);margin-bottom:2px;">Kedai Makanan</div>
+            <div style="font-size:10px;color:rgba(200,214,232,.65);line-height:1.55;">Usaha jasa pangan yang menjual dan menyajikan makanan siap konsumsi di tempat tetap yang dapat dipindah-pindahkan, seperti kedai seafood, pecel ayam, dll.</div>
+          </div>
+        </div>
+        <!-- KBLI 10794 -->
+        <div style="display:flex;gap:10px;align-items:flex-start;background:rgba(255,255,255,.04);border:1px solid rgba(37,99,176,.2);border-left:3px solid var(--mid);border-radius:6px;padding:8px 12px;animation:fu .5s .20s both;">
+          <div style="flex-shrink:0;text-align:center;min-width:54px;">
+            <div style="font-size:8px;letter-spacing:1px;color:#60a5fa;text-transform:uppercase;">KBLI</div>
+            <div style="font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:#60a5fa;line-height:1.2;">10794</div>
+            <div style="font-family:'Playfair Display',serif;font-size:16px;font-weight:900;color:var(--white);line-height:1.1;">730</div>
+          </div>
+          <div style="flex:1;border-left:1px solid rgba(255,255,255,.07);padding-left:10px;">
+            <div style="font-size:12px;font-weight:600;color:var(--white);margin-bottom:2px;">Industri Kerupuk, Keripik, Peyek &amp; Sejenisnya</div>
+            <div style="font-size:10px;color:rgba(200,214,232,.65);line-height:1.55;">Usaha industri berbagai macam kerupuk, keripik, peyek dan sejenisnya, seperti kerupuk udang, kerupuk ikan, emping, kecimpring, opak, keripik, dan peyek.</div>
+          </div>
+        </div>
+        <!-- KBLI 47112 -->
+        <div style="display:flex;gap:10px;align-items:flex-start;background:rgba(255,255,255,.04);border:1px solid rgba(14,158,158,.15);border-left:3px solid var(--teal);border-radius:6px;padding:8px 12px;animation:fu .5s .30s both;">
+          <div style="flex-shrink:0;text-align:center;min-width:54px;">
+            <div style="font-size:8px;letter-spacing:1px;color:var(--teal);text-transform:uppercase;">KBLI</div>
+            <div style="font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:var(--teal);line-height:1.2;">47112</div>
+            <div style="font-family:'Playfair Display',serif;font-size:16px;font-weight:900;color:var(--white);line-height:1.1;">669</div>
+          </div>
+          <div style="flex:1;border-left:1px solid rgba(255,255,255,.07);padding-left:10px;">
+            <div style="font-size:12px;font-weight:600;color:var(--white);margin-bottom:2px;">Perdagangan Eceran Makanan, Minuman &amp; Tembakau (Tradisional)</div>
+            <div style="font-size:10px;color:rgba(200,214,232,.65);line-height:1.55;">Usaha perdagangan eceran kebutuhan pokok di bangunan bukan swalayan/minimarket, seperti warung atau toko bahan kebutuhan pokok.</div>
+          </div>
+        </div>
+        <!-- KBLI 01411 -->
+        <div style="display:flex;gap:10px;align-items:flex-start;background:rgba(255,255,255,.04);border:1px solid rgba(124,58,237,.15);border-left:3px solid #7c3aed;border-radius:6px;padding:8px 12px;animation:fu .5s .40s both;">
+          <div style="flex-shrink:0;text-align:center;min-width:54px;">
+            <div style="font-size:8px;letter-spacing:1px;color:#a78bfa;text-transform:uppercase;">KBLI</div>
+            <div style="font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:#a78bfa;line-height:1.2;">01411</div>
+            <div style="font-family:'Playfair Display',serif;font-size:16px;font-weight:900;color:var(--white);line-height:1.1;">513</div>
+          </div>
+          <div style="flex:1;border-left:1px solid rgba(255,255,255,.07);padding-left:10px;">
+            <div style="font-size:12px;font-weight:600;color:var(--white);margin-bottom:2px;">Pembibitan dan Budidaya Sapi Potong</div>
+            <div style="font-size:10px;color:rgba(200,214,232,.65);line-height:1.55;">Usaha peternakan yang melakukan pembibitan dan penggemukan sapi potong untuk menghasilkan bibit, calon indukan, dan sapi siap potong.</div>
+          </div>
+        </div>
+        <!-- KBLI 56102 -->
+        <div style="display:flex;gap:10px;align-items:flex-start;background:rgba(255,255,255,.04);border:1px solid rgba(224,92,42,.15);border-left:3px solid var(--accent2);border-radius:6px;padding:8px 12px;animation:fu .5s .50s both;">
+          <div style="flex-shrink:0;text-align:center;min-width:54px;">
+            <div style="font-size:8px;letter-spacing:1px;color:var(--accent2);text-transform:uppercase;">KBLI</div>
+            <div style="font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:var(--accent2);line-height:1.2;">56102</div>
+            <div style="font-family:'Playfair Display',serif;font-size:16px;font-weight:900;color:var(--white);line-height:1.1;">364</div>
+          </div>
+          <div style="flex:1;border-left:1px solid rgba(255,255,255,.07);padding-left:10px;">
+            <div style="font-size:12px;font-weight:600;color:var(--white);margin-bottom:2px;">Aktivitas Cold Storage</div>
+            <div style="font-size:10px;color:rgba(200,214,232,.65);line-height:1.55;">Usaha penyimpanan barang dengan pendinginan dalam jangka waktu tertentu atas dasar fee/kontrak, termasuk gudang pembekuan cepat (blast freezing).</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="cn" style="margin-top:10px;">Sumber: DPMPTSP Kabupaten Gunungkidul · Data Perizinan Tahun 2025</p>
+  </div>
+</div>
+
+
+<!-- ============ SLIDE 1: SECTION REALISASI INVESTASI ============ -->
+<div class="slide bs">
+  <div class="go"></div><div class="snum">01</div>
+  <div class="shdr">
+    <span class="sicon">💰</span><div class="slbl"></div>
+    <h2 class="stitle">Realisasi<br>Investasi</h2>
+    <div class="sbar"></div>
+    <p class="sdesc">Data OSS &amp; LKPM — Realisasi investasi Kabupaten Gunungkidul 2021–2025</p>
+  </div>
+</div>
+
+<!-- ============ SLIDE 2: DATA REALISASI INVESTASI ============ -->
+<div class="slide bd">
+  <div class="go"></div><div class="rg"></div>
+  <div class="ds">
+    <div class="dsh">
+      <div class="dslbl">Sumber: OSS dan LKPM Tahun 2021-2025</div>
+      <div class="dstit">Realisasi Investasi Kabupaten Gunungkidul</div>
+      <div class="dssub">Data OSS vs LKPM (Rupiah), 2021–2025</div>
+    </div>
+    <div class="rtable-wrap">
+    <table class="rtable">
+      <thead>
+        <tr><th>Tahun</th><th>Data OSS (Rp)</th><th>Data LKPM (Rp)</th><th>Total (Rp)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>2021</td><td>155.059.507.342</td><td>127.775.390.787</td><td>282.834.898.129</td></tr>
+        <tr><td>2022</td><td>261.166.467.868</td><td>214.184.207.082</td><td>475.350.674.950</td></tr>
+        <tr><td>2023</td><td>421.653.307.591</td><td>207.514.690.446</td><td>629.167.998.037</td></tr>
+        <tr><td>2024</td><td>714.545.385.112</td><td>111.108.200.610</td><td>825.653.585.722</td></tr>
+        <tr class="total-row"><td>2025</td><td>680.335.327.108</td><td>171.411.437.620</td><td>851.746.764.728</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="cw" style="margin-top:14px">
+      <div class="cr" style="animation-delay:.3s"><div class="cy" style="width:50px;font-size:11px">2021</div><div class="ct"><div class="cb pur" data-w="33">Rp 282,8 M</div></div><div class="cv" style="font-size:11px">Rp 282,8 M</div></div>
+      <div class="cr" style="animation-delay:.4s"><div class="cy" style="width:50px;font-size:11px">2025</div><div class="ct"><div class="cb grn" data-w="100">Rp 851,7 M</div></div><div class="cv" style="font-size:11px">Rp 851,7 M</div></div>
+    </div>
+    <div class="ib" data-ek="ri.ins">💡 <strong>Investasi Tumbuh 3x Lipat:</strong> Total realisasi investasi meningkat dari Rp 282,8 miliar (2021) menjadi Rp 851,7 miliar (2025), tumbuh ~201% dalam 5 tahun.</div>
+  </div>
+</div>
+
+  <!-- ============ SLIDE: SECTION SEBARAN INVESTASI ============ -->
+<div class="slide bs">
+  <div class="go"></div><div class="snum">08</div>
+  <div class="shdr">
+    <span class="sicon">📊</span>
+    <div class="slbl">Sebaran Investasi 2025</div>
+    <h2 class="stitle">Top 5<br>Sebaran Investasi Berdasarkan Sektor</h2>
+    <div class="sbar"></div>
+    <p class="sdesc">Lima sektor penyumbang nilai investasi terbesar di Kabupaten Gunungkidul tahun 2025</p>
+  </div>
+</div>
+
+<!-- ============ SLIDE 16: DATA SEBARAN PROYEK ============ -->
+<div class="slide bd">
+  <div class="go"></div><div class="rg"></div>
+  <div class="ds">
+    <div class="dsh">
+      <div class="dslbl">Sebaran Investasi · Sumber: DPMPTSP Kab. Gunungkidul</div>
+      <div class="dstit">Top 5<br>Sebaran Investasi Berdasarkan Sektor</div>
+      <div class="dssub">Nilai Investasi per Sektor (Miliar Rupiah), Tahun 2025</div>
+    </div>
+    <div class="cw">
+      <div class="cr" style="animation-delay:.15s">
+        <div class="cy" style="width:170px;font-size:12px;text-align:right">🌾 Pertanian &amp; Peternakan</div>
+        <div class="ct"><div class="cb grn" data-w="100">Rp 174 M</div></div>
+        <div class="cv">Rp 174 M</div>
+      </div>
+      <div class="cr" style="animation-delay:.25s">
+        <div class="cy" style="width:170px;font-size:12px;text-align:right">🏖️ Pariwisata</div>
+        <div class="ct"><div class="cb tel" data-w="97.7">Rp 170 M</div></div>
+        <div class="cv">Rp 170 M</div>
+      </div>
+      <div class="cr" style="animation-delay:.35s">
+        <div class="cy" style="width:170px;font-size:12px;text-align:right">🛒 Perdagangan</div>
+        <div class="ct"><div class="cb" data-w="91.4">Rp 159 M</div></div>
+        <div class="cv">Rp 159 M</div>
+      </div>
+      <div class="cr" style="animation-delay:.45s">
+        <div class="cy" style="width:170px;font-size:12px;text-align:right">🏥 Kesehatan</div>
+        <div class="ct"><div class="cb pur" data-w="78.7">Rp 137 M</div></div>
+        <div class="cv">Rp 137 M</div>
+      </div>
+      <div class="cr" style="animation-delay:.55s">
+        <div class="cy" style="width:170px;font-size:12px;text-align:right">🏭 Perindustrian</div>
+        <div class="ct"><div class="cb red" data-w="66.1">Rp 115 M</div></div>
+        <div class="cv">Rp 115 M</div>
+      </div>
+    </div>
+    <p class="cn">Sumber: DPMPTSP Kabupaten Gunungkidul · Data per 2025</p>
+    <div class="ib">
+      💡 <strong>Pertanian &amp; Pariwisata Mendominasi:</strong> Dua sektor unggulan Gunungkidul memimpin sebaran investasi 2025. Total 5 sektor ini menyumbang <strong>Rp 755 Miliar</strong> atau sekitar <strong>88,7%</strong> dari total investasi Rp 851,7 Miliar di tahun 2025.
+    </div>
+  </div>
+</div>
+<!-- ============ SLIDE 3: SECTION LKPM ============ -->
+<div class="slide bl">
+  <div class="go"></div><div class="rgg"></div><div class="snum" style="color:rgba(74,222,128,.04)">02</div>
+  <div class="shdr">
+    <span class="sicon">📋</span>
+    <div class="slbl" style="color:#4ade80">Analisis LKPM</div>
+    <h2 class="stitle">Tantangan Realisasi<br>LKPM Gunungkidul</h2>
+    <div class="sbar" style="background:#4ade80"></div>
+    <p class="sdesc">Identifikasi permasalahan pelaporan LKPM di sistem OSS RBA oleh DPMPTSP Kab. Gunungkidul</p>
+  </div>
+</div>
+
+<!-- ============ SLIDE 4: TANTANGAN LKPM 1-3 ============ -->
+<div class="slide bl">
+  <div class="go"></div><div class="rgg"></div>
+  <div class="lkpm-slide">
+    <div class="lkpm-tag">DPMPTSP · TANTANGAN LKPM</div>
+    <div class="lkpm-title">Permasalahan Pelaporan LKPM (1/2)</div>
+    <div class="lkpm-sub">Hambatan utama yang dihadapi dalam peningkatan realisasi LKPM di Kabupaten Gunungkidul</div>
+    <div class="lkpm-grid">
+      <div class="lkpm-card" style="animation-delay:.1s">
+        <div class="lkpm-num">01</div>
+        <div class="lkpm-ctitle">Rendahnya Motivasi &amp; Kesadaran Pelaku Usaha</div>
+        <div class="lkpm-cdesc">Pelaku usaha menganggap pengisian LKPM di sistem OSS RBA sebagai beban administrasi yang rumit. Mayoritas beranggapan kewajiban selesai setelah NIB diterbitkan, dan tidak ada konsekuensi langsung jika tidak melapor — menimbulkan mentalitas <em>"tidak lapor pun usaha tetap jalan."</em></div>
+      </div>
+      <div class="lkpm-card orange" style="animation-delay:.2s">
+        <div class="lkpm-num">02</div>
+        <div class="lkpm-ctitle">Ketidakakuratan Data Nilai Investasi</div>
+        <div class="lkpm-cdesc">Nilai investasi yang diinput saat pendaftaran NIB sering tidak sesuai dengan kondisi riil di lapangan, bahkan sangat jauh perbedaannya. Hal ini berdampak pada pengelompokan skala usaha yang tidak akurat — menentukan apakah pelaku usaha wajib atau tidak wajib melaporkan LKPM.</div>
+      </div>
+      <div class="lkpm-card yellow" style="animation-delay:.3s">
+        <div class="lkpm-num">03</div>
+        <div class="lkpm-ctitle">Mayoritas Pelaku Usaha Berskala Mikro</div>
+        <div class="lkpm-cdesc">Dominasi pelaku usaha mikro di Gunungkidul menjadi hambatan struktural. Berdasarkan ketentuan yang berlaku, kewajiban LKPM hanya dikenakan kepada pelaku usaha <strong>skala Kecil, Menengah, dan Besar</strong> — sedangkan pelaku usaha Mikro <em>tidak wajib</em> melaporkan LKPM, sehingga realisasi investasi yang tercatat menjadi rendah.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ SLIDE 5: TANTANGAN LKPM 4-6 ============ -->
+<div class="slide bl">
+  <div class="go"></div><div class="rgg"></div>
+  <div class="lkpm-slide">
+    <div class="lkpm-tag">DPMPTSP · TANTANGAN LKPM</div>
+    <div class="lkpm-title">Permasalahan Pelaporan LKPM (2/2)</div>
+    <div class="lkpm-sub">Hambatan struktural dan geografis yang mempersulit pendataan investasi</div>
+    <div class="lkpm-grid">
+      <div class="lkpm-card blue" style="animation-delay:.1s">
+        <div class="lkpm-num">04</div>
+        <div class="lkpm-ctitle">Minimnya Informasi Proyek Investasi Baru</div>
+        <div class="lkpm-cdesc">DPMPTSP kesulitan menelusuri potensi investasi baru di wilayah Gunungkidul karena proses pengajuan dilakukan secara daring (online). Proyek-proyek baru yang masuk tidak terpantau secara optimal karena keterbatasan akses data proaktif dari sistem OSS RBA.</div>
+      </div>
+      <div class="lkpm-card red" style="animation-delay:.2s">
+        <div class="lkpm-num">05</div>
+        <div class="lkpm-ctitle">Karakteristik Wilayah Gunungkidul</div>
+        <div class="lkpm-cdesc"><strong>Dominasi Pariwisata &amp; UMKM:</strong> Administrasi tidak tercatat rapi, pelaku usaha ragu melaporkan angka investasi formal.<br><br><strong>Kendala Literasi Digital:</strong> Pelaku usaha di zona selatan dan pelosok masih banyak yang belum mahir mengoperasikan pelaporan LKPM berbasis daring secara mandiri.</div>
+      </div>
+      <div class="lkpm-card" style="animation-delay:.3s;border-left-color:#a78bfa;border-color:rgba(167,139,250,.15)">
+        <div class="lkpm-num" style="color:#a78bfa">06</div>
+        <div class="lkpm-ctitle">Keterbatasan Kapasitas SDM Pendamping</div>
+        <div class="lkpm-cdesc">Terbatasnya jumlah personil pendamping OSS di DPMPTSP menyulitkan jangkauan pelayanan kepada pelaku usaha yang tersebar di wilayah geografis Kabupaten Gunungkidul yang sangat luas (± 1.485 km²), mencakup 18 kapanewon.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ SLIDE 6: SECTION STRATEGI ============ -->
+<div class="slide bl">
+  <div class="go"></div><div class="rgg"></div><div class="snum" style="color:rgba(74,222,128,.04)">03</div>
+  <div class="shdr">
+    <span class="sicon">🎯</span>
+    <div class="slbl" style="color:#4ade80">Strategi DPMPTSP</div>
+    <h2 class="stitle">Upaya Peningkatan<br>Realisasi LKPM</h2>
+    <div class="sbar" style="background:#4ade80"></div>
+    <p class="sdesc">Langkah-langkah strategis yang telah dilaksanakan DPMPTSP Kab. Gunungkidul untuk meningkatkan kepatuhan LKPM</p>
+  </div>
+</div>
+
+<!-- ============ SLIDE 7: DATA STRATEGI ============ -->
+<div class="slide bl">
+  <div class="go"></div><div class="rgg"></div>
+  <div class="lkpm-slide">
+    <div class="lkpm-tag">DPMPTSP · STRATEGI</div>
+    <div class="lkpm-title">Strategi Peningkatan Pelaporan LKPM</div>
+    <div class="lkpm-sub">Program dan kegiatan yang telah dilaksanakan DPMPTSP Kabupaten Gunungkidul</div>
+    <div class="strat-wrap">
+      <div class="strat-item" style="animation-delay:.1s">
+        <div class="strat-icon">🎓</div>
+        <div class="strat-body">
+          <div class="strat-title">01 · Bimbingan Teknis &amp; Pendampingan Pelaporan LKPM</div>
+          <div class="strat-desc">Bimbingan Teknis LKPM dilaksanakan sebagai langkah strategis untuk menjembatani kesenjangan antara realisasi investasi di lapangan dengan data yang tercatat di sistem OSS RBA. Tujuan utama: membangun pemahaman bahwa LKPM adalah kewajiban hukum. Selain itu, dilakukan pendampingan langsung bagi pelaku usaha untuk penyelesaian masalah teknis seperti hak akses, lupa password, dan migrasi data dari sistem lama.</div>
+        </div>
+      </div>
+      <div class="strat-item" style="animation-delay:.2s">
+        <div class="strat-icon">📱</div>
+        <div class="strat-body">
+          <div class="strat-title">02 · Video Tutorial via Media Sosial</div>
+          <div class="strat-desc">DPMPTSP Gunungkidul memproduksi dan menyebarkan video tutorial singkat mengenai tata cara pelaporan LKPM melalui media sosial resmi DPMPTSP Gunungkidul. Pendekatan konten digital ini bertujuan menjangkau pelaku usaha yang aktif di platform digital secara lebih efisien dan mandiri.</div>
+        </div>
+      </div>
+      <div class="strat-item" style="animation-delay:.3s">
+        <div class="strat-icon">📧</div>
+        <div class="strat-body">
+          <div class="strat-title">03 · Notifikasi Email &amp; WhatsApp ke Pelaku Usaha</div>
+          <div class="strat-desc">Pemberitahuan proaktif melalui email dan pesan WhatsApp kepada pelaku usaha mengenai jadwal pelaporan LKPM setiap triwulan. Pengingat ini dirancang untuk mengurangi kelalaian pelaporan akibat kurangnya kesadaran akan jadwal dan kewajiban hukum yang berlaku.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ============ SLIDE makro ekonomi gunungkidul ============ -->
+<div class="slide bs">
+  <div class="go"></div><div class="snum">08</div>
+  <div class="shdr">
+    <span class="sicon">📊</span>
+    <div class="slbl"></div>
+    <h2 class="stitle" data-ek="s1.title">Makro Ekonomi<br>Kabupaten Gunungkidul<br>2021-2025</h2>
+    <div class="sbar"></div>
+    <p class="sdesc"></p>
+  </div>
+</div>
+<!-- ============ SLIDE 8: SECTION KEMISKINAN ============ -->
+<div class="slide bs">
+  <div class="go"></div><div class="snum">04</div>
+  <div class="shdr">
+    <span class="sicon">📉</span><div class="slbl"></div>
+    <h2 class="stitle" data-ek="s1.title">Tingkat<br>Kemiskinan</h2>
+    <div class="sbar"></div>
+    <p class="sdesc" data-ek="s1.desc">Persentase &amp; jumlah penduduk miskin Kabupaten Gunungkidul, 2021–2025</p>
+  </div>
+</div>
+
+<!-- ============ SLIDE 9: DATA KEMISKINAN ============ -->
+<div class="slide bd">
+  <div class="go"></div><div class="rg"></div>
+  <div class="ds">
+    <div class="dsh">
+      <div class="dslbl">Sumber: BPS Kabupaten Gunungkidul, Gunungkidul Dalam Angka 2022-2026</div>
+      <div class="dstit" data-ek="s1.ct">Tingkat Kemiskinan</div>
+      <div class="dssub" data-ek="s1.cs">Persentase Penduduk Miskin (%) · 2021–2025</div>
+    </div>
+    <div class="cw">
+      <div class="cr" style="animation-delay:.15s"><div class="cy">2021</div><div class="ct"><div class="cb red" data-w="92" data-ek="k21">17,69%</div></div><div class="cv" data-ek="k21l">17,69%</div></div>
+      <div class="cr" style="animation-delay:.25s"><div class="cy">2022</div><div class="ct"><div class="cb red" data-w="82" data-ek="k22">15,86%</div></div><div class="cv" data-ek="k22l">15,86%</div></div>
+      <div class="cr" style="animation-delay:.35s"><div class="cy">2023</div><div class="ct"><div class="cb red" data-w="80" data-ek="k23">15,60%</div></div><div class="cv" data-ek="k23l">15,60%</div></div>
+      <div class="cr" style="animation-delay:.45s"><div class="cy">2024</div><div class="ct"><div class="cb red" data-w="78" data-ek="k24">15,18%</div></div><div class="cv" data-ek="k24l">15,18%</div></div>
+      <div class="cr" style="animation-delay:.55s"><div class="cy">2025</div><div class="ct"><div class="cb red" data-w="73" data-ek="k25">14,15%</div></div><div class="cv" data-ek="k25l">14,15%</div></div>
+    </div>
+    <p class="cn">Sumber: BPS Kab. Gunungkidul, Gunungkidul Dalam Angka 2022-2026</p>
+    <div class="jiwa-wrap">
+      <div class="jiwa-card"><div class="jiwa-yr">2021</div><div class="jiwa-miskin">135.330 jiwa</div><div class="jiwa-pct">17,69%</div></div>
+      <div class="jiwa-card"><div class="jiwa-yr">2022</div><div class="jiwa-miskin">124.200 jiwa</div><div class="jiwa-pct">15,86%</div></div>
+      <div class="jiwa-card"><div class="jiwa-yr">2023</div><div class="jiwa-miskin">120.800 jiwa</div><div class="jiwa-pct">15,60%</div></div>
+      <div class="jiwa-card"><div class="jiwa-yr">2024</div><div class="jiwa-miskin">116.900 jiwa</div><div class="jiwa-pct">15,18%</div></div>
+      <div class="jiwa-card"><div class="jiwa-yr">2025</div><div class="jiwa-miskin">113.480 jiwa</div><div class="jiwa-pct">14,15%</div></div>
+    </div>
+    <div class="ib" data-ek="k.ins">💡 <strong>Tren Menurun Konsisten:</strong> Kemiskinan turun dari 17,69% (135.330 jiwa, 2021) menjadi 14,15% (113.480 jiwa, 2025) dengan persentase sebesar 3,54 %.</div>
+  </div>
+</div>
+
+<!-- ============ SLIDE 10: SECTION PERTUMBUHAN ============ -->
+<div class="slide bs">
+  <div class="go"></div><div class="snum">05</div>
+  <div class="shdr">
+    <span class="sicon">📈</span><div class="slbl"></div>
+    <h2 class="stitle" data-ek="s2.title">Pertumbuhan<br>Ekonomi</h2>
+    <div class="sbar"></div>
+    <p class="sdesc" data-ek="s2.desc">Laju pertumbuhan ekonomi Kabupaten Gunungkidul 2021–2025</p>
+  </div>
+</div>
+
+<!-- ============ SLIDE 11: DATA PERTUMBUHAN ============ -->
+<div class="slide bd">
+  <div class="go"></div><div class="rg"></div>
+  <div class="ds">
+    <div class="dsh">
+      <div class="dslbl">Sumber: BPS Kabupaten Gunungkidul, Gunungkidul Dalam Angka 2022 &amp; 2026</div>
+      <div class="dstit" data-ek="s2.ct">Pertumbuhan Ekonomi</div>
+      <div class="dssub" data-ek="s2.cs">Laju Pertumbuhan (%), 2021–2025</div>
+    </div>
+    <div class="cw">
+      <div class="cr" style="animation-delay:.15s"><div class="cy">2021</div><div class="ct"><div class="cb grn" data-w="62" data-ek="pe21">5,22%</div></div><div class="cv" data-ek="pe21l">5,22%</div></div>
+      <div class="cr" style="animation-delay:.25s"><div class="cy">2022</div><div class="ct"><div class="cb grn" data-w="64" data-ek="pe22">5,37%</div></div><div class="cv" data-ek="pe22l">5,37%</div></div>
+      <div class="cr" style="animation-delay:.35s"><div class="cy">2023</div><div class="ct"><div class="cb grn" data-w="60" data-ek="pe23">5,04%</div></div><div class="cv" data-ek="pe23l">5,04%</div></div>
+      <div class="cr" style="animation-delay:.45s"><div class="cy">2024</div><div class="ct"><div class="cb grn" data-w="57" data-ek="pe24">4,81%</div></div><div class="cv" data-ek="pe24l">4,81%</div></div>
+      <div class="cr" style="animation-delay:.55s"><div class="cy">2025</div><div class="ct"><div class="cb grn" data-w="65" data-ek="pe25">5,47%</div></div><div class="cv" data-ek="pe25l">5,47%</div></div>
+    </div>
+    <p class="cn">Sumber: BPS Kab. Gunungkidul, Gunungkidul Dalam Angka 2022 &amp; 2026</p>
+    <div class="ib" data-ek="pe.ins">💡 <strong>Akselerasi Pertumbuhan:</strong> Pertumbuhan ekonomi Gunungkidul periode 2021-2025 menunjukkan performa yang resilien dengan tren yang kembali menguat signifikan hingga mencapai 5,47% di tahun terakhir. Fluktuasi yang terjadi pada 2023-2024 mencerminkan fase konsolidasi pasar. Capaian ini mempertegas bahwa iklim investasi di Gunungkidul semakin kondusif dan siap menyambut ekspansi usaha yang lebih luas ke depannya..</div>
+  </div>
+</div>
+
+<!-- ============ SLIDE 12: SECTION GINI ============ -->
+<div class="slide bs">
+  <div class="go"></div><div class="snum">06</div>
+  <div class="shdr">
+    <span class="sicon">⚖️</span><div class="slbl"></div>
+    <h2 class="stitle" data-ek="s3.title">Rasio Gini<br>(Ketimpangan)</h2>
+    <div class="sbar"></div>
+    <p class="sdesc" data-ek="s3.desc">Indeks ketimpangan distribusi pendapatan masyarakat Gunungkidul</p>
+  </div>
+</div>
+
+<!-- ============ SLIDE 13: DATA GINI ============ -->
+<div class="slide bd">
+  <div class="go"></div><div class="rg"></div>
+  <div class="ds">
+    <div class="dsh">
+      <div class="dslbl">Sumber: BPS Gunungkidul, Gunungkidul dalam angka 2022-2026</div>
+      <div class="dstit" data-ek="s3.ct">Rasio Gini Kabupaten Gunungkidul</div>
+      <div class="dssub">Skala 0 (sangat merata) hingga 1 (sangat timpang), 2021–2025</div>
+    </div>
+    <div class="tr">
+      <div class="tc" style="animation-delay:.1s"><div class="tcy">2021</div><div class="tcv" data-ek="g21">0,323</div><div class="tcl">Ketimpangan Rendah</div></div>
+      <div class="tc" style="animation-delay:.2s"><div class="tcy">2022</div><div class="tcv" data-ek="g22">0,316</div><div class="tcl">Terendah 5 Tahun</div><div class="tca adn">▼ Turun</div></div>
+      <div class="tc" style="animation-delay:.3s"><div class="tcy">2023</div><div class="tcv" data-ek="g23">0,343</div><div class="tcl">Sedikit Naik</div><div class="tca aup">▲ Naik</div></div>
+      <div class="tc" style="animation-delay:.4s"><div class="tcy">2024</div><div class="tcv" data-ek="g24">0,355</div><div class="tcl">Tertinggi 5 Tahun</div><div class="tca aup">▲ Naik</div></div>
+      <div class="tc" style="animation-delay:.5s"><div class="tcy">2025</div><div class="tcv" data-ek="g25">0,333</div><div class="tcl">Mulai Membaik</div><div class="tca adn">▼ Turun</div></div>
+    </div>
+    <div class="hl"></div>
+    <div class="cw">
+      <div class="cr" style="animation-delay:.6s"><div class="cy" style="width:90px;font-size:11px">Gunungkidul</div><div class="ct"><div class="cb tel" data-w="66">0,333</div></div><div class="cv"></div></div>
+      <div class="cr" style="animation-delay:.7s"><div class="cy" style="width:90px;font-size:11px">Rata-rata DIY</div><div class="ct"><div class="cb" data-w="84">0,426</div></div><div class="cv"></div></div>
+      <div class="cr" style="animation-delay:.8s"><div class="cy" style="width:90px;font-size:11px">Kota Yogya</div><div class="ct"><div class="cb red" data-w="87">0,435</div></div><div class="cv"></div></div>
+    </div>
+    <p class="cn">*Perbandingan berdasarkan data BPS DIY 2022–2023</p>
+    <div class="ib" data-ek="g.ins">💡 <strong>:</strong>Rasio Gini kembali turun ke 0,333 di 2025. Tingkat ketimpangan di Kabupaten Gunungkidul masih lebih rendah dibanding rata-rata DIY (0,426).</div>
+  </div>
+</div>
+
+<!-- ============ SLIDE 14: SECTION PDRB ============ -->
+<div class="slide bs">
+  <div class="go"></div><div class="snum">07</div>
+  <div class="shdr">
+    <span class="sicon">🏭</span><div class="slbl"></div>
+    <h2 class="stitle" data-ek="s4.title">Sektor Penyumbang<br>PDRB Terbesar</h2>
+    <div class="sbar"></div>
+    <p class="sdesc" data-ek="s4.desc">Lapangan usaha penyumbang PDRB terbesar Kabupaten Gunungkidul (miliar rupiah)</p>
+  </div>
+</div>
+
+<!-- ============ SLIDE 15: DATA PDRB ============ -->
+<div class="slide bd">
+  <div class="go"></div><div class="rg"></div>
+  <div class="ds">
+    <div class="dsh">
+      <div class="dslbl">Sumber: BPS Gunungkidul</div>
+      <div class="dstit" data-ek="s4.ct">5 Sektor Penyumbang PDRB Terbesar</div>
+      <div class="dssub">Nilai PDRB dalam Miliar Rupiah, 2021–2025 (ADHB)</div>
+    </div>
+    <div class="pl">
+      <div class="pdw">
+        <svg viewBox="0 0 190 190">
+          <circle cx="95" cy="95" r="75" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="30"/>
+          <circle cx="95" cy="95" r="75" fill="none" stroke="#1a6b3a" stroke-width="30" stroke-dasharray="188 471" stroke-dashoffset="0" transform="rotate(-90 95 95)"/>
+          <circle cx="95" cy="95" r="75" fill="none" stroke="#2563b0" stroke-width="30" stroke-dasharray="66 471" stroke-dashoffset="-188" transform="rotate(-90 95 95)"/>
+          <circle cx="95" cy="95" r="75" fill="none" stroke="#0e9e9e" stroke-width="30" stroke-dasharray="66 471" stroke-dashoffset="-254" transform="rotate(-90 95 95)"/>
+          <circle cx="95" cy="95" r="75" fill="none" stroke="#f0a500" stroke-width="30" stroke-dasharray="66 471" stroke-dashoffset="-320" transform="rotate(-90 95 95)"/>
+          <circle cx="95" cy="95" r="75" fill="none" stroke="#e05c2a" stroke-width="30" stroke-dasharray="61 471" stroke-dashoffset="-386" transform="rotate(-90 95 95)"/>
+          <circle cx="95" cy="95" r="75" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="30" stroke-dasharray="24 471" stroke-dashoffset="-447" transform="rotate(-90 95 95)"/>
+          <text x="95" y="90" text-anchor="middle" fill="white" font-family="Playfair Display" font-size="15" font-weight="700">PDRB</text>
+          <text x="95" y="105" text-anchor="middle" fill="#c8d6e8" font-size="10">2025</text>
+        </svg>
+        <div class="dll">Komposisi Sektoral 2025</div>
+      </div>
+      <div class="plist">
+        <div class="pi" style="animation-delay:.1s"><div class="pdot" style="background:#1a6b3a"></div><div class="pn">🌾 Pertanian, Kehutanan &amp; Perikanan</div><div class="pb"><div class="pbf" style="background:#1a6b3a" data-w="100"></div></div><div class="pp" data-ek="p1">Rp 7.309</div></div>
+        <div class="pi" style="animation-delay:.4s"><div class="pdot" style="background:#f0a500"></div><div class="pn">🛒 Perdagangan Besar &amp; Eceran</div><div class="pb"><div class="pbf" style="background:#f0a500" data-w="35"></div></div><div class="pp" data-ek="p4">Rp 2.541</div></div>
+        
+        <div class="pi" style="animation-delay:.3s"><div class="pdot" style="background:#0e9e9e"></div><div class="pn">📡 Informasi &amp; Komunikasi</div><div class="pb"><div class="pbf" style="background:#0e9e9e" data-w="34"></div></div><div class="pp" data-ek="p3">Rp 2.492</div></div>
+        
+        <div class="pi" style="animation-delay:.5s"><div class="pdot" style="background:#e05c2a"></div><div class="pn">🏭 Industri Pengolahan</div><div class="pb"><div class="pbf" style="background:#e05c2a" data-w="33"></div></div><div class="pp" data-ek="p5">Rp 2.408</div></div>
+      <div class="pi" style="animation-delay:.2s"><div class="pdot" style="background:#2563b0"></div><div class="pn">🏗️ Konstruksi</div><div class="pb"><div class="pbf" style="background:#2563b0" data-w="34"></div></div><div class="pp" data-ek="p2">Rp 2.248</div></div>
+      </div>
+    </div>
+    <div class="ib" data-ek="p.ins">💡 <strong>Pertanian Tetap Dominan:</strong> Pertanian, Kehutanan &amp; Perikanan menjadi sektor terbesar dengan nilai Rp 7.309 miliar di 2025, tumbuh dari Rp 4.837 miliar di 2021 (+51%). Sektor informasi &amp; komunikasi dan perdagangan menunjukkan pertumbuhan pesat dalam 5 tahun terakhir.</div>
+  </div>
+</div>
+
+<!-- ============ SLIDE 16: SECTION PENGANGGURAN ============ -->
+<div class="slide bs">
+  <div class="go"></div><div class="snum">08</div>
+  <div class="shdr">
+    <span class="sicon">👔</span><div class="slbl"></div>
+    <h2 class="stitle" data-ek="s5.title">Tingkat<br>Pengangguran</h2>
+    <div class="sbar"></div>
+    <p class="sdesc" data-ek="s5.desc">Tingkat Pengangguran Terbuka (TPT) Kabupaten Gunungkidul, 2021–2025</p>
+  </div>
+</div>
+
+<!-- ============ SLIDE 17: DATA PENGANGGURAN ============ -->
+<div class="slide bd">
+  <div class="go"></div><div class="rg"></div>
+  <div class="ds">
+    <div class="dsh">
+      <div class="dslbl">Sumber: BPS Gunungkidul, Gunungkiudul dalam angka 2022-2026</div>
+      <div class="dstit" data-ek="s5.ct">Tingkat Pengangguran Terbuka (TPT)</div>
+      <div class="dssub">Persentase angkatan kerja yang tidak bekerja, 2021–2025</div>
+    </div>
+    <div class="cw">
+      <div class="cr" style="animation-delay:.15s"><div class="cy">2021</div><div class="ct"><div class="cb" data-w="46" data-ek="t21">2,20%</div></div><div class="cv" data-ek="t21l">2,20%</div></div>
+      <div class="cr" style="animation-delay:.25s"><div class="cy">2022</div><div class="ct"><div class="cb grn" data-w="41" data-ek="t22">2,08%</div></div><div class="cv" data-ek="t22l">2,08%</div></div>
+      <div class="cr" style="animation-delay:.35s"><div class="cy">2023</div><div class="ct"><div class="cb grn" data-w="41" data-ek="t23">2,09%</div></div><div class="cv" data-ek="t23l">2,09%</div></div>
+      <div class="cr" style="animation-delay:.45s"><div class="cy">2024</div><div class="ct"><div class="cb" data-w="42" data-ek="t24">2,16%</div></div><div class="cv" data-ek="t24l">2,16%</div></div>
+      <div class="cr" style="animation-delay:.55s"><div class="cy">2025</div><div class="ct"><div class="cb grn" data-w="41" data-ek="t25">2,15%</div></div><div class="cv" data-ek="t25l">2,15%</div></div>
+    </div>
+    <div class="hl"></div>
+    <div class="tr">
+      <div class="tc" style="animation-delay:.5s"><div class="tcy">TPT Gunungkidul</div><div class="tcv" data-ek="tc1">2,15%</div><div class="tcl">Rata-rata 2025</div><div class="tca adn">✓ Sangat Rendah</div></div>
+      <div class="tc" style="animation-delay:.6s"><div class="tcy">Rata-rata DIY</div><div class="tcv" data-ek="tc2">3,84%</div><div class="tcl">Provinsi 2023</div></div>
+      <div class="tc" style="animation-delay:.7s"><div class="tcy">Nasional</div><div class="tcv" data-ek="tc3">4,82%</div><div class="tcl">Indonesia 2024</div></div>
+    </div>
+    <p class="cn">Sumber: BPS Kab. Gunungkidul, Gunungkidul dalam angka 2022-2026</p>
+    <div class="ib" data-ek="t.ins">💡 <strong>Pengangguran Sangat Rendah:</strong> TPT Gunungkidul konsisten di kisaran 2,1–2,2%, jauh di bawah rata-rata DIY (3,84%) dan nasional (4,82%).</div>
+  </div>
+</div>
+
+<!-- ============ SLIDE 18: SECTION TPAK ============ -->
+<div class="slide bs">
+  <div class="go"></div><div class="snum">09</div>
+  <div class="shdr">
+    <span class="sicon">👷</span><div class="slbl"></div>
+    <h2 class="stitle" data-ek="s6.title">Tingkat Partisipasi<br>Angkatan Kerja</h2>
+    <div class="sbar"></div>
+    <p class="sdesc" data-ek="s6.desc">TPAK — persentase penduduk usia kerja yang aktif di pasar tenaga kerja</p>
+  </div>
+</div>
+
+<!-- ============ SLIDE 19: DATA TPAK ============ -->
+<div class="slide bd">
+  <div class="go"></div><div class="rg"></div>
+  <div class="ds">
+    <div class="dsh">
+      <div class="dslbl">Sumber: BPS Gunungkidul, Gunungkidul dalam angka 2022-2026</div>
+      <div class="dstit" data-ek="s6.ct">Tingkat Partisipasi Angkatan Kerja (TPAK)</div>
+      <div class="dssub">Persentase penduduk usia kerja yang aktif, 2021–2025</div>
+    </div>
+    <div class="cw">
+      <div class="cr" style="animation-delay:.15s"><div class="cy">2021</div><div class="ct"><div class="cb tel" data-w="75.99" data-ek="tp21">75,99%</div></div><div class="cv" data-ek="tp21l">75,99%</div></div>
+      <div class="cr" style="animation-delay:.25s"><div class="cy">2022</div><div class="ct"><div class="cb tel" data-w="74.07" data-ek="tp22">74,07%</div></div><div class="cv" data-ek="tp22l">74,07%</div></div>
+      <div class="cr" style="animation-delay:.35s"><div class="cy">2023</div><div class="ct"><div class="cb tel" data-w="76.66" data-ek="tp23">76,66%</div></div><div class="cv" data-ek="tp23l">76,66%</div></div>
+      <div class="cr" style="animation-delay:.45s"><div class="cy">2024</div><div class="ct"><div class="cb tel" data-w="76.87" data-ek="tp24">76,87%</div></div><div class="cv" data-ek="tp24l">76,87%</div></div>
+      <div class="cr" style="animation-delay:.55s"><div class="cy">2025</div><div class="ct"><div class="cb tel" data-w="77" data-ek="tp25">77,00%</div></div><div class="cv" data-ek="tp25l">77,00%</div></div>
+    </div>
+    <div class="hl"></div>
+    <div class="tr">
+      <div class="tc" style="animation-delay:.5s"><div class="tcy">TPAK 2025</div><div class="tcv">77,00%</div><div class="tcl">Gunungkidul</div><div class="tca adn">▲ Meningkat</div></div>
+      <div class="tc" style="animation-delay:.6s"><div class="tcy">Rata-rata DIY</div><div class="tcv">~72%</div><div class="tcl">Provinsi 2023</div></div>
+      <div class="tc" style="animation-delay:.7s"><div class="tcy">Nasional</div><div class="tcv">69,5%</div><div class="tcl">Indonesia 2023</div></div>
+    </div>
+    <p class="cn">Sumber: BPS Kab. Gunungkidul, Gunungkidul dalam angka 2022-2026</p>
+    <div class="ib" data-ek="tp.ins">💡 <strong>TPAK Tinggi &amp; Stabil:</strong> Partisipasi angkatan kerja Gunungkidul (77,00% di 2025) secara konsisten melampaui rata-rata DIY dan nasional.</div>
+  </div>
+</div>
+
+<!-- ============ SLIDE 20: SECTION LULUSAN ============ -->
+<div class="slide bp">
+  <div class="go"></div><div class="rgp"></div><div class="snum" style="color:rgba(96,165,250,.04)">10</div>
+  <div class="shdr">
+    <span class="sicon">🎓</span>
+    <div class="slbl" style="color:#60a5fa">Data Pendidikan</div>
+    <h2 class="stitle">Potensi Angkatan Kerja&amp;<br>Lulusan SMA/SMK Gunungkidul</h2>
+    <div class="sbar" style="background:#60a5fa"></div>
+    <p class="sdesc">Data lulusan SMA dan SMK Kabupaten Gunungkidul berdasarkan jurusan, jenis kelamin, dan tahun 2021–2025</p>
+  </div>
+</div>
+
+<!-- ============ SLIDE 21: DATA LULUSAN SMA ============ -->
+<div class="slide bp">
+  <div class="go"></div><div class="rgp"></div>
+  <div class="ds">
+    <div class="dsh">
+      <div class="pend-tag">DATA PENDIDIKAN · SMA</div>
+      <div class="pend-title">Lulusan SMA Kabupaten Gunungkidul</div>
+      <div class="pend-sub">Total lulusan per tahun berdasarkan jurusan &amp; jenis kelamin, 2021–2025</div>
+    </div>
+    <!-- Stacked bar chart by jurusan per tahun -->
+    <div class="sbar-wrap">
+      <!-- 2021: MIPA 911, IPS 1065, UMUM 26, Bahasa 32 | total 2034 -->
+      <div class="sbar-row" style="animation-delay:.1s">
+        <div class="sbar-yr">2021</div>
+        <div class="sbar-track">
+          <div class="sbar-seg" style="background:#2563b0" data-sw="44.8">MIPA 911</div>
+          <div class="sbar-seg" style="background:#e05c2a" data-sw="52.4">IPS 1.065</div>
+          <div class="sbar-seg" style="background:#28a85a" data-sw="1.3">26</div>
+          <div class="sbar-seg" style="background:#b5b803" data-sw="1.6">32</div>
+        </div>
+        <div class="sbar-total">2.034</div>
+      </div>
+      <!-- 2022: MIPA 1075, IPS 1077, UMUM 20, Bahasa 36 | total 2208 -->
+      <div class="sbar-row" style="animation-delay:.2s">
+        <div class="sbar-yr">2022</div>
+        <div class="sbar-track">
+          <div class="sbar-seg" style="background:#2563b0" data-sw="48.7">MIPA 1.075</div>
+          <div class="sbar-seg" style="background:#e05c2a" data-sw="48.8">IPS 1.077</div>
+          <div class="sbar-seg" style="background:#28a85a" data-sw="0.9">20</div>
+          <div class="sbar-seg" style="background:#b5b803" data-sw="1.6">36</div>
+        </div>
+        <div class="sbar-total">2.208</div>
+      </div>
+      <!-- 2023: MIPA 1090, IPS 1051, UMUM 20, Bahasa 36 | total 2197 -->
+      <div class="sbar-row" style="animation-delay:.3s">
+        <div class="sbar-yr">2023</div>
+        <div class="sbar-track">
+          <div class="sbar-seg" style="background:#2563b0" data-sw="49.6">MIPA 1.090</div>
+          <div class="sbar-seg" style="background:#e05c2a" data-sw="47.8">IPS 1.051</div>
+          <div class="sbar-seg" style="background:#28a85a" data-sw="0.9">20</div>
+          <div class="sbar-seg" style="background:#b5b803" data-sw="1.6">36</div>
+        </div>
+        <div class="sbar-total">2.197</div>
+      </div>
+      <!-- 2024: MIPA 667, IPS 701, UMUM 934, Bahasa 0 | total 2302 -->
+      <div class="sbar-row" style="animation-delay:.4s">
+        <div class="sbar-yr">2024</div>
+        <div class="sbar-track">
+          <div class="sbar-seg" style="background:#2563b0" data-sw="29.0">MIPA 667</div>
+          <div class="sbar-seg" style="background:#e05c2a" data-sw="30.5">IPS 701</div>
+          <div class="sbar-seg" style="background:#28a85a" data-sw="40.6">UMUM 934</div>
+          <div class="sbar-seg" style="background:#0e9e9e" data-sw="0">–</div>
+        </div>
+        <div class="sbar-total">2.302</div>
+      </div>
+      <!-- 2025: MIPA 559, IPS 576, UMUM 1362, Bahasa 0 | total 2497 -->
+      <div class="sbar-row" style="animation-delay:.5s">
+        <div class="sbar-yr">2025</div>
+        <div class="sbar-track">
+          <div class="sbar-seg" style="background:#2563b0" data-sw="22.4">MIPA 559</div>
+          <div class="sbar-seg" style="background:#e05c2a" data-sw="23.1">IPS 576</div>
+          <div class="sbar-seg" style="background:#28a85a" data-sw="54.5">UMUM 1.362</div>
+          <div class="sbar-seg" style="background:#0e9e9e" data-sw="0">–</div>
+        </div>
+        <div class="sbar-total">2.497</div>
+      </div>
+    </div>
+    <div class="sbar-legend">
+      <div class="sbar-leg-item"><div class="sbar-leg-dot" style="background:#2563b0"></div>MIPA / IPA</div>
+      <div class="sbar-leg-item"><div class="sbar-leg-dot" style="background:#e05c2a"></div>IPS</div>
+      <div class="sbar-leg-item"><div class="sbar-leg-dot" style="background:#28a85a"></div>UMUM</div>
+      <div class="sbar-leg-item"><div class="sbar-leg-dot" style="background:#b5b803"></div>Bahasa</div>
+    </div>
+    <div class="tr" style="margin-top:12px">
+      <div class="tc" style="animation-delay:.6s"><div class="tcy">Total 5 Tahun</div><div class="tcv" style="color:#60a5fa">11.238</div><div class="tcl">Lulusan SMA</div></div>
+      <div class="tc" style="animation-delay:.7s"><div class="tcy">Laki-laki</div><div class="tcv">4.229</div><div class="tcl">37,63%</div></div>
+      <div class="tc" style="animation-delay:.8s"><div class="tcy">Perempuan</div><div class="tcv">7.009</div><div class="tcl">62,37%</div></div>
+      <div class="tc" style="animation-delay:.9s"><div class="tcy">Tren</div><div class="tcv" style="color:#4ade80">↑ 23%</div><div class="tcl">2021 → 2025</div></div>
+    </div>
+    <div class="ib blue">💡 <strong>Dominasi Perempuan &amp; Kurikulum Merdeka:</strong> Lulusan SMA didominasi perempuan (61,7%). Mulai 2024, Kurikulum Merdeka menggantikan penjurusan MIPA/IPS — jurusan UMUM menjadi mayoritas (54,5%) di 2025. Total lulusan tumbuh dari 2.034 (2021) menjadi 2.497 (2025).</div>
+  </div>
+</div>
+
+<!-- ============ SLIDE 22: DATA LULUSAN SMK OVERVIEW ============ -->
+<div class="slide bp">
+  <div class="go"></div><div class="rgp"></div>
+  <div class="ds">
+    <div class="dsh">
+      <div class="pend-tag">DATA PENDIDIKAN · SMK</div>
+      <div class="pend-title">Lulusan SMK Kabupaten Gunungkidul</div>
+      <div class="pend-sub">Total lulusan per tahun &amp; perbandingan L/P, 2021–2025 · 57 Program Keahlian</div>
+    </div>
+    <div class="cw">
+      <div class="cr" style="animation-delay:.1s"><div class="cy">2021</div><div class="ct"><div class="cb sky" data-w="97">6.138</div></div><div class="cv">6.138</div></div>
+      <div class="cr" style="animation-delay:.2s"><div class="cy">2022</div><div class="ct"><div class="cb sky" data-w="95">6.055</div></div><div class="cv">6.055</div></div>
+      <div class="cr" style="animation-delay:.3s"><div class="cy">2023</div><div class="ct"><div class="cb sky" data-w="95">6.013</div></div><div class="cv">6.013</div></div>
+      <div class="cr" style="animation-delay:.4s"><div class="cy">2024</div><div class="ct"><div class="cb sky" data-w="99">6.306</div></div><div class="cv">6.306</div></div>
+      <div class="cr" style="animation-delay:.5s"><div class="cy">2025</div><div class="ct"><div class="cb sky" data-w="100">6.352</div></div><div class="cv">6.352</div></div>
+    </div>
+    <div class="hl"></div>
+    <div class="tr">
+      <div class="tc" style="animation-delay:.5s"><div class="tcy">Total 5 Tahun</div><div class="tcv" style="color:#60a5fa">30.864</div><div class="tcl">Lulusan SMK</div></div>
+      <div class="tc" style="animation-delay:.6s"><div class="tcy">Laki-laki</div><div class="tcv">17.404</div><div class="tcl">56,39%</div></div>
+      <div class="tc" style="animation-delay:.7s"><div class="tcy">Perempuan</div><div class="tcv">13.460</div><div class="tcl">43,61%</div></div>
+      <div class="tc" style="animation-delay:.8s"><div class="tcy">Program Keahlian</div><div class="tcv">57</div><div class="tcl">Jurusan Aktif</div></div>
+    </div>
+    <p class="cn">Sumber: Balai Diklat Menengah</p>
+    <div class="ib blue">💡 <strong>SMK Didominasi Laki-laki:</strong> Berbanding terbalik dengan SMA, lulusan SMK didominasi laki-laki (56,39%) — mencerminkan besarnya jurusan teknik otomotif dan kejuruan. Total 30.864 lulusan dari 57 program keahlian selama 2021–2025, dengan tren meningkat di 2024–2025.</div>
+  </div>
+</div>
+
+<!-- ============ SLIDE 23: TOP 10 JURUSAN SMK ============ -->
+<div class="slide bp">
+  <div class="go"></div><div class="rgp"></div>
+  <div class="ds">
+    <div class="dsh">
+      <div class="pend-tag">DATA PENDIDIKAN · SMK · TOP 10</div>
+      <div class="pend-title">10 Jurusan SMK Terbanyak</div>
+      <div class="pend-sub">Berdasarkan total lulusan 2021–2025 (dari 57 program keahlian)</div>
+    </div>
+    <div class="cw" style="gap:8px">
+      <div class="smk-row" style="animation-delay:.1s">
+        <div class="smk-name">Teknik &amp; Bisnis Sepeda Motor</div>
+        <div class="smk-track"><div class="smk-bar" style="background:linear-gradient(90deg,#1a4a8a,#3b82f6)" data-w="100">2.819</div></div>
+        <div class="smk-val">2.819</div>
+      </div>
+      <div class="smk-row" style="animation-delay:.15s">
+        <div class="smk-name">Teknik Komputer Jaringan</div>
+        <div class="smk-track"><div class="smk-bar" style="background:linear-gradient(90deg,#0a5a5a,#0e9e9e)" data-w="70.23">1.980</div></div>
+        <div class="smk-val">1.980</div>
+      </div>
+      <div class="smk-row" style="animation-delay:.2s">
+        <div class="smk-name">Teknik Audio Video</div>
+        <div class="smk-track"><div class="smk-bar" style="background:linear-gradient(90deg,#0a2a5a,#0e289e)" data-w="48.9">1.379</div></div>
+        <div class="smk-val">1.379</div>
+      </div>
+      <div class="smk-row" style="animation-delay:.25s">
+        <div class="smk-name">Akuntansi &amp; Keuangan Lembaga</div>
+        <div class="smk-track"><div class="smk-bar" style="background:linear-gradient(90deg,#6a1a3a,#ec4899)" data-w="45.69">1.288</div></div>
+        <div class="smk-val">1.288</div>
+      </div>
+      <div class="smk-row" style="animation-delay:.3s">
+        <div class="smk-name">Multimedia</div>
+        <div class="smk-track"><div class="smk-bar" style="background:linear-gradient(90deg,#4a1a8a,#7c3aed)" data-w="44.7">1.261</div></div>
+        <div class="smk-val">1.261</div>
+      </div>
+      
+      <div class="smk-row" style="animation-delay:.05s">
+        <div class="smk-name">Teknik Otomotif</div>
+        <div class="smk-track"><div class="smk-bar" style="background:linear-gradient(90deg,#1a4a8a,#3b82f6)" data-w="40.72">1.148</div></div>
+        <div class="smk-val">1.148</div>
+      </div>
+      <div class="smk-row" style="animation-delay:.35s">
+        <div class="smk-name">Tata Boga/Kuliner</div>
+        <div class="smk-track"><div class="smk-bar" style="background:linear-gradient(90deg,#1a4a8a,#3b82f6)" data-w="37.8">1.066</div></div>
+        <div class="smk-val">1.066</div>
+      </div>
+      <div class="smk-row" style="animation-delay:.4s">
+        <div class="smk-name">Akuntansi</div>
+        <div class="smk-track"><div class="smk-bar" style="background:linear-gradient(90deg,#6a1a3a,#ec4899)" data-w="37.1">1.046</div></div>
+        <div class="smk-val">1.046</div>
+      </div>
+      <div class="smk-row" style="animation-delay:.45s">
+        <div class="smk-name">Desain Komunikasi Visual</div>
+        <div class="smk-track"><div class="smk-bar" style="background:linear-gradient(90deg,#4a1a8a,#7c3aed)" data-w="33">935</div></div>
+        <div class="smk-val">935</div>
+      </div>
+      <div class="smk-row" style="animation-delay:.5s">
+        <div class="smk-name">Tata Busana</div>
+        <div class="smk-track"><div class="smk-bar" style="background:linear-gradient(90deg,#6a1a3a,#ec4899)" data-w="28.8">812</div></div>
+        <div class="smk-val">812</div>
+      </div>
+     
+    </div>
+    <div class="ib blue" style="margin-top:10px">💡 <strong>Teknik Bisnis Sepeda Motor:</strong> Teknik Kendaraan Ringan (2.819 lulusan) menjadi jurusan terbesar — hampir 2x lipat jurusan kedua. Bersama Teknik &amp; Bisnis Sepeda Motor (2.178), dua jurusan otomotif ini menyumbang 21% dari total seluruh lulusan SMK.</div>
+  </div>
+</div>
+
+<!-- ============ SLIDE 27: PENUTUP ============ -->
+<div class="slide bc">
+  <div class="go"></div><div class="rg"></div>
+  <div class="cdec cd1"></div><div class="cdec cd2"></div>
+  <div class="logo-header">
+    <img src="assets/logogk.svg" alt="Logo Gunungkidul" onerror="this.style.display='none'">
+    <div class="inst-name">PEMERINTAH KABUPATEN<br><strong style="color:var(--accent)">GUNUNGKIDUL</strong></div>
+  </div>
+  <div class="cc">
+    <div class="ctag" data-ek="cl.tag">Ringkasan Capaian · 2021–2025</div>
+    <h2 class="cct" data-ek="cl.title">Gunungkidul<br>Terus Bertumbuh</h2>
+    <div class="ccs">
+      <div class="ccard"><div class="ccv" data-ek="cl.v1">14,15%</div><div class="ccl" data-ek="cl.l1">Kemiskinan 2025<br>↓ dari 17,69%(2021)</div></div>
+      <div class="ccard"><div class="ccv" data-ek="cl.v2">5,47%</div><div class="ccl" data-ek="cl.l2">Pertumbuhan<br>Ekonomi 2025</div></div>
+      <div class="ccard"><div class="ccv" data-ek="cl.v3">0,333</div><div class="ccl" data-ek="cl.l3">Rasio Gini<br>2025</div></div>
+      <div class="ccard"><div class="ccv" data-ek="cl.v4">2,15%</div><div class="ccl" data-ek="cl.l4">Pengangguran<br>Terbuka 2025</div></div>
+      <div class="ccard"><div class="ccv" data-ek="cl.v5">Rp 851,7 M</div><div class="ccl" data-ek="cl.l5">Total Investasi<br>2025</div></div>
+      <div class="ccard"><div class="ccv" data-ek="cl.v6">8.832</div><div class="ccl" data-ek="cl.l6">Lulusan SMA&amp;SMK<br>2025</div></div>
+    </div>
+    <!-- Perbandingan Gunungkidul vs DIY vs Nasional -->
+    <div class="cmp-wrap">
+      <table class="cmp-table">
+        <thead>
+          <tr>
+            <th>Indikator</th>
+            <th>Gunungkidul</th>
+            <th>DIY</th>
+            <th>Nasional</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Kemiskinan (2025)</td>
+            <td class="gk-col mid">14,15%</td>
+            <td class="mid">10,23%</td>
+            <td class="mid">8,25%</td>
+          </tr>
+          <tr>
+            <td>Pertumbuhan Ekonomi (2025)</td>
+            <td class="gk-col mid">5,47%</td>
+            <td class="gk-col mid">5,94%</td>
+            <td class="gk-col mid">5,11%</td>
+          </tr>
+          <tr>
+            <td>Pengangguran / TPT (2025)</td>
+            <td class="gk-col mid">2,15%</td>
+            <td class="mid">3,46%</td>
+            <td class="mid">4,74%</td>
+          </tr>
+          <tr>
+            <td>Rasio Gini (2025)</td>
+            <td class="gk-col mid">0,333</td>
+            <td class="mid">0,426</td>
+            <td class="mid">0,363</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- Ringkasan Perizinan DPMPTSP -->
+    <div style="margin-top:8px;animation:fu .6s .55s both;">
+      <div style="font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(240,165,0,.5);margin-bottom:5px;">Perizinan DPMPTSP 2021–2025 · Top KBLI 2025</div>
+      <div class="ccs" style="margin-bottom:0;gap:8px;">
+        <div class="ccard"><div class="ccv" style="color:#4ade80;font-size:clamp(13px,1.8vw,22px);">43.079</div><div class="ccl">Total Perizinan<br>Berusaha</div></div>
+        <div class="ccard"><div class="ccv" style="color:var(--teal);font-size:clamp(13px,1.8vw,22px);">9.419</div><div class="ccl">Total Perizinan<br>Non-Berusaha</div></div>
+        <div class="ccard"><div class="ccv" style="font-size:clamp(10px,1.2vw,15px);line-height:1.3;color:#4ade80;">KBLI 56103</div><div class="ccl">#1 KBLI 2025<br>Kedai Makanan (925)</div></div>
+        <div class="ccard"><div class="ccv" style="font-size:clamp(10px,1.2vw,15px);line-height:1.3;color:#60a5fa;">KBLI 10794</div><div class="ccl">#2 KBLI 2025<br>Ind. Kerupuk &amp; Keripik (730)</div></div>
+      </div>
+    </div>
+    <div class="cdiv" style="margin:10px auto;"></div>
+    <p class="ccf" data-ek="cl.footer">Sumber: BPS Kabupaten Gunungkidul · Gunungkidul Dalam Angka 2022-2026 · DPMPTSP Kab. Gunungkidul<br>Disusun oleh: DPMPTSP Kabupaten Gunungkidul · 2025 · *Data DIY &amp; Nasional sebagian bersifat estimasi/perbandingan</p>
+  </div>
+  <div class="logo-footer-wrap">
+    <img src="assets/logo-footer.svg" alt="Logo DPMPTSP" onerror="this.style.display='none'">
+  </div>
+</div>
+
+</div><!-- /ss -->
+<!-- ======== EDITOR PANEL ======== -->
+<div id="ep">
+  <div class="eph">
+    <div class="ept">✏️ Editor Konten</div>
+    <div class="eps">PILIH TAB · EDIT · TERAPKAN</div>
+  </div>
+  <div class="eptabs" id="etabs">
+    <div class="eptab active" data-tab="cover">Cover</div>
+    <div class="eptab" data-tab="kem">Kemiskinan</div>
+    <div class="eptab" data-tab="pe">Pertumbuhan</div>
+    <div class="eptab" data-tab="gini">Gini</div>
+    <div class="eptab" data-tab="pdrb">PDRB</div>
+    <div class="eptab" data-tab="tpt">Pengangguran</div>
+    <div class="eptab" data-tab="tpak">Angkt.Kerja</div>
+    <div class="eptab" data-tab="inv">Investasi</div>
+    <div class="eptab" data-tab="penutup">Penutup</div>
+  </div>
+  <div class="epbody" id="epbody"></div>
+  <div class="epfoot">
+    <div class="epsaved" id="epmsg">✓ Diterapkan!</div>
+    <button class="epbtn epbtn-apply" onclick="applyEdits()">✓ Terapkan Perubahan</button>
+    <button class="epbtn epbtn-export" onclick="exportHTML()">⬇ Export &amp; Simpan HTML</button>
+    <button class="epbtn epbtn-reset" onclick="if(confirm('Reset ke data awal?'))location.reload()">↺ Reset ke Data Awal</button>
+    <div class="ephelp">Tekan <strong>E</strong> untuk buka/tutup editor · <strong>P</strong> untuk print · <strong>F</strong> untuk fullscreen</div>
+  </div>
+</div>
+</div><!-- /app -->
+
+<div id="nav">
+  <button class="nb" id="pb" onclick="cs(-1)">&#8592;</button>
+  <div class="nd" id="nd"></div>
+  <span id="snum">1/–</span>
+  <button class="nb" id="nb" onclick="cs(1)">&#8594;</button>
+</div>
+
+<script>
+// ===== SLIDESHOW =====
+const SL=document.querySelectorAll('.slide'),ND=document.getElementById('nd'),SN=document.getElementById('snum'),PR=document.getElementById('prog');
+let cur=0,anim=false;
+SL.forEach((_,i)=>{const d=document.createElement('div');d.className='dot'+(i===0?' active':'');d.onclick=()=>gt(i);ND.appendChild(d);});
+
+function ui(){
+  ND.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active',i===cur));
+  SN.textContent=(cur+1)+'/'+SL.length;
+  document.getElementById('pb').disabled=cur===0;
+  document.getElementById('nb').disabled=cur===SL.length-1;
+  PR.style.width=((cur/(SL.length-1))*100)+'%';
+}
+
+function bars(sl){
+  setTimeout(()=>{
+    // standard bars
+    sl.querySelectorAll('[data-w]').forEach(b=>{
+      if(b.classList.contains('cb')||b.classList.contains('pbf')||b.classList.contains('smk-bar'))
+        b.style.width=b.dataset.w+'%';
+    });
+    // stacked segments
+    sl.querySelectorAll('[data-sw]').forEach(seg=>{
+      seg.style.width=seg.dataset.sw+'%';
+    });
+  },400);
+}
+
+function gt(n,dir){
+  if(anim||n===cur)return;anim=true;
+  const pv=SL[cur],nx=SL[n];
+  const zoom=(cur===0||n===0||cur===SL.length-1||n===SL.length-1||cur%2===1||n%2===1);
+  if(zoom){pv.classList.add('xz');nx.classList.add('active','ez');}
+  else if((dir!==undefined?dir:n-cur)>0){pv.classList.add('xl');nx.classList.add('active','er');}
+  else{pv.classList.add('xr');nx.classList.add('active','el');}
+  setTimeout(()=>{pv.classList.remove('active','xz','xl','xr');nx.classList.remove('ez','er','el');cur=n;ui();bars(nx);anim=false;},700);
+}
+function cs(d){const n=cur+d;if(n>=0&&n<SL.length)gt(n,d);}
+document.addEventListener('keydown',e=>{
+  if(['INPUT','TEXTAREA'].includes(document.activeElement.tagName))return;
+  if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' '){e.preventDefault();cs(1);}
+  if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();cs(-1);}
+  if(e.key==='f'||e.key==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen();}
+  if(e.key==='p'||e.key==='P')window.print();
+  if(e.key==='e'||e.key==='E')toggleEd();
+});
+let tx=null;
+document.addEventListener('touchstart',e=>{tx=e.touches[0].clientX;});
+document.addEventListener('touchend',e=>{if(!tx)return;const dx=tx-e.changedTouches[0].clientX;if(Math.abs(dx)>50)cs(dx>0?1:-1);tx=null;});
+ui();bars(SL[0]);PR.style.width='0%';
+
+// ===== EDITOR =====
+let edOpen=false;
+function toggleEd(){
+  edOpen=!edOpen;
+  document.getElementById('ep').classList.toggle('open',edOpen);
+  const b=document.getElementById('etbtn');b.classList.toggle('active',edOpen);
+  b.textContent=edOpen?'✕ Tutup Editor':'✏️ Mode Editor';
+}
+
+const TABS={
+  // NOTE: key s1=Kemiskinan(Ind.04), s2=Pertumbuhan(Ind.05), s3=Gini(Ind.06),
+  //       s4=PDRB(Ind.07), s5=Pengangguran(Ind.08), s6=TPAK(Ind.09)
+  cover:[
+    {l:'Tag Instansi',k:'c.tag'},{l:'Judul Baris 1',k:'c.t1'},{l:'Judul Baris 2 (emas)',k:'c.t2'},
+    {l:'Subjudul',k:'c.sub'},{l:'Teks Sumber',k:'c.src'},
+  ],
+  kem:[
+    {l:'Judul Seksi',k:'s1.title'},{l:'Deskripsi',k:'s1.desc'},{l:'Judul Chart',k:'s1.ct'},{l:'Sub-judul Chart',k:'s1.cs'},
+    {l:'·',type:'d'},
+    {l:'2021 Nilai',k:'k21',sync:'k21l'},{l:'2021 Bar (0-100)',k:'k21',type:'bw'},
+    {l:'2022 Nilai',k:'k22',sync:'k22l'},{l:'2022 Bar (0-100)',k:'k22',type:'bw'},
+    {l:'2023 Nilai',k:'k23',sync:'k23l'},{l:'2023 Bar (0-100)',k:'k23',type:'bw'},
+    {l:'2024 Nilai',k:'k24',sync:'k24l'},{l:'2024 Bar (0-100)',k:'k24',type:'bw'},
+    {l:'2025 Nilai',k:'k25',sync:'k25l'},{l:'2025 Bar (0-100)',k:'k25',type:'bw'},
+    {l:'Insight',k:'k.ins',type:'ta'},
+  ],
+  pe:[
+    {l:'Judul Seksi',k:'s2.title'},{l:'Deskripsi',k:'s2.desc'},{l:'Judul Chart',k:'s2.ct'},{l:'Sub-judul',k:'s2.cs'},
+    {l:'·',type:'d'},
+    {l:'2021',k:'pe21',sync:'pe21l'},{l:'2021 Bar',k:'pe21',type:'bw'},
+    {l:'2022',k:'pe22',sync:'pe22l'},{l:'2022 Bar',k:'pe22',type:'bw'},
+    {l:'2023',k:'pe23',sync:'pe23l'},{l:'2023 Bar',k:'pe23',type:'bw'},
+    {l:'2024',k:'pe24',sync:'pe24l'},{l:'2024 Bar',k:'pe24',type:'bw'},
+    {l:'2025',k:'pe25',sync:'pe25l'},{l:'2025 Bar',k:'pe25',type:'bw'},
+    {l:'Insight',k:'pe.ins',type:'ta'},
+  ],
+  gini:[
+    {l:'Judul Seksi',k:'s3.title'},{l:'Deskripsi',k:'s3.desc'},{l:'Judul Chart',k:'s3.ct'},
+    {l:'·',type:'d'},
+    {l:'Gini 2021',k:'g21'},{l:'Gini 2022',k:'g22'},{l:'Gini 2023',k:'g23'},
+    {l:'Gini 2024',k:'g24'},{l:'Gini 2025',k:'g25'},{l:'Insight',k:'g.ins',type:'ta'},
+  ],
+  pdrb:[
+    {l:'Judul Seksi',k:'s4.title'},{l:'Deskripsi',k:'s4.desc'},{l:'Judul Chart',k:'s4.ct'},
+    {l:'·',type:'d'},
+    {l:'Pertanian (nilai)',k:'p1'},{l:'Konstruksi (nilai)',k:'p2'},{l:'Info & Kom (nilai)',k:'p3'},
+    {l:'Perdagangan (nilai)',k:'p4'},{l:'Industri (nilai)',k:'p5'},{l:'Insight',k:'p.ins',type:'ta'},
+  ],
+  tpt:[
+    {l:'Judul Seksi',k:'s5.title'},{l:'Deskripsi',k:'s5.desc'},{l:'Judul Chart',k:'s5.ct'},
+    {l:'·',type:'d'},
+    {l:'2021',k:'t21',sync:'t21l'},{l:'2021 Bar',k:'t21',type:'bw'},
+    {l:'2022',k:'t22',sync:'t22l'},{l:'2022 Bar',k:'t22',type:'bw'},
+    {l:'2023',k:'t23',sync:'t23l'},{l:'2023 Bar',k:'t23',type:'bw'},
+    {l:'2024',k:'t24',sync:'t24l'},{l:'2024 Bar',k:'t24',type:'bw'},
+    {l:'2025',k:'t25',sync:'t25l'},{l:'2025 Bar',k:'t25',type:'bw'},
+    {l:'Kartu 1 (Gunungkidul)',k:'tc1'},{l:'Kartu 2 (DIY)',k:'tc2'},{l:'Kartu 3 (Nasional)',k:'tc3'},
+    {l:'Insight',k:'t.ins',type:'ta'},
+  ],
+  tpak:[
+    {l:'Judul Seksi',k:'s6.title'},{l:'Deskripsi',k:'s6.desc'},{l:'Judul Chart',k:'s6.ct'},
+    {l:'·',type:'d'},
+    {l:'2021',k:'tp21',sync:'tp21l'},{l:'2021 Bar',k:'tp21',type:'bw'},
+    {l:'2022',k:'tp22',sync:'tp22l'},{l:'2022 Bar',k:'tp22',type:'bw'},
+    {l:'2023',k:'tp23',sync:'tp23l'},{l:'2023 Bar',k:'tp23',type:'bw'},
+    {l:'2024',k:'tp24',sync:'tp24l'},{l:'2024 Bar',k:'tp24',type:'bw'},
+    {l:'2025',k:'tp25',sync:'tp25l'},{l:'2025 Bar',k:'tp25',type:'bw'},
+    {l:'Insight',k:'tp.ins',type:'ta'},
+  ],
+  inv:[{l:'Insight Investasi',k:'ri.ins',type:'ta'}],
+  penutup:[
+    {l:'Tag Atas',k:'cl.tag'},{l:'Judul Penutup',k:'cl.title'},
+    {l:'·',type:'d'},
+    {l:'Kartu 1 Nilai',k:'cl.v1'},{l:'Kartu 1 Label',k:'cl.l1'},
+    {l:'Kartu 2 Nilai',k:'cl.v2'},{l:'Kartu 2 Label',k:'cl.l2'},
+    {l:'Kartu 3 Nilai',k:'cl.v3'},{l:'Kartu 3 Label',k:'cl.l3'},
+    {l:'Kartu 4 Nilai',k:'cl.v4'},{l:'Kartu 4 Label',k:'cl.l4'},
+    {l:'Kartu 5 Nilai',k:'cl.v5'},{l:'Kartu 5 Label',k:'cl.l5'},
+    {l:'Kartu 6 Nilai',k:'cl.v6'},{l:'Kartu 6 Label',k:'cl.l6'},
+    {l:'Footer',k:'cl.footer',type:'ta'},
+  ],
+};
+
+function gv(k){const el=document.querySelector(`[data-ek="${k}"]`);return el?el.textContent.trim():'';}
+function gbw(k){const el=document.querySelector(`[data-ek="${k}"].cb,[data-ek="${k}"].pbf,[data-ek="${k}"].smk-bar`);return el?el.dataset.w||'':'';}
+
+
+let activeTab='cover';
+function buildTab(tab){
+  const body=document.getElementById('epbody');body.innerHTML='';
+  (TABS[tab]||[]).forEach(f=>{
+    if(f.type==='d'){const d=document.createElement('div');d.className='epstit';d.textContent='Nilai Data';body.appendChild(d);return;}
+    const w=document.createElement('div');w.className='epf';
+    const lb=document.createElement('label');lb.className='epl';lb.textContent=f.l;w.appendChild(lb);
+    if(f.type==='ta'){const ta=document.createElement('textarea');ta.className='epta';ta.dataset.ek=f.k;ta.dataset.ft='t';ta.value=gv(f.k);w.appendChild(ta);}
+    else if(f.type==='bw'){const inp=document.createElement('input');inp.className='epism';inp.type='number';inp.min=0;inp.max=100;inp.step=0.01;inp.dataset.ek=f.k;inp.dataset.ft='bw';inp.value=gbw(f.k);w.appendChild(inp);}
+    else{const inp=document.createElement('input');inp.className='epi';inp.type='text';inp.dataset.ek=f.k;inp.dataset.ft='t';if(f.sync)inp.dataset.sync=f.sync;inp.value=gv(f.k);w.appendChild(inp);}
+    body.appendChild(w);
+  });
+}
+
+document.getElementById('etabs').querySelectorAll('.eptab').forEach(tab=>{
+  tab.addEventListener('click',()=>{
+    document.querySelectorAll('.eptab').forEach(t=>t.classList.remove('active'));
+    tab.classList.add('active');activeTab=tab.dataset.tab;buildTab(activeTab);
+  });
+});
+buildTab('cover');
+
+function applyEdits(){
+  document.querySelectorAll('#epbody [data-ek]').forEach(inp=>{
+    const k=inp.dataset.ek,v=inp.value,ft=inp.dataset.ft;
+    if(ft==='bw'){
+      // FIX: simpan nilai baru ke dataset.w agar exportHTML() ikut ter-update
+      document.querySelectorAll(`[data-ek="${k}"].cb,[data-ek="${k}"].pbf,[data-ek="${k}"].smk-bar`).forEach(b=>{
+        b.dataset.w=v;
+        b.style.width=v+'%';
+      });
+    } else {
+      document.querySelectorAll(`[data-ek="${k}"]`).forEach(el=>{
+        if(!el.classList.contains('cb')&&!el.classList.contains('pbf')&&!el.classList.contains('smk-bar'))
+          el.innerHTML=v.replace(/\n/g,'<br>');
+      });
+      if(inp.dataset.sync)
+        document.querySelectorAll(`[data-ek="${inp.dataset.sync}"]`).forEach(el=>el.innerHTML=v.replace(/\n/g,'<br>'));
+    }
+  });
+  const m=document.getElementById('epmsg');m.style.opacity='1';setTimeout(()=>m.style.opacity='0',2000);
+  // FIX: jangan panggil bars() setelah apply agar nilai bar yang baru diedit tidak ditimpa kembali
+  // bars() hanya dipanggil saat pindah slide
+}
+
+function exportHTML(){
+  const clone=document.documentElement.cloneNode(true);
+  clone.querySelector('#ep').remove();
+  clone.querySelector('#etbtn').remove();
+  // Terapkan semua bar widths ke style agar muncul tanpa JS di file export
+  clone.querySelectorAll('[data-w]').forEach(b=>{b.style.width=b.dataset.w+'%';});
+  clone.querySelectorAll('[data-sw]').forEach(b=>{b.style.width=b.dataset.sw+'%';});
+  // Pastikan semua slide tampak & aktif di mode cetak/export
+  const blob=new Blob(['<!DOCTYPE html>\n'+clone.outerHTML],{type:'text/html'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);
+  a.download='presentasi-gunungkidul-dpmptsp.html';a.click();
+}
+</script>
+
+</body>
+</html>
