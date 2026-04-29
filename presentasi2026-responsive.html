@@ -437,6 +437,105 @@ html,body{width:100%;height:100%;font-family:'Source Sans 3',sans-serif;backgrou
   #nav{bottom:8px;padding:5px 10px;}
   .lkpm-grid{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;}
 }
+:root{
+  --kbak-green:#22c55e;
+  --kbak-green-dim:rgba(34,197,94,.15);
+  --kbak-green-border:rgba(34,197,94,.25);
+  --kbak-yellow:#f0a500;
+  --kbak-red:#f87171;
+  --kbak-blue:#60a5fa;
+}
+
+/* Background hijau gelap untuk KBAK */
+.bkbak{background:linear-gradient(145deg,#071a0f 0%,#0d2a15 50%,#0a2010 100%);}
+.rkbak{position:absolute;inset:0;background:radial-gradient(ellipse at 30% 40%,rgba(34,197,94,.12) 0%,transparent 60%);pointer-events:none;}
+
+/* Tag KBAK */
+.kbak-tag{display:inline-block;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--kbak-green);border:1px solid var(--kbak-green-border);padding:4px 14px;border-radius:2px;margin-bottom:14px;animation:fu .6s .1s both;}
+
+/* Slide container */
+.kbak-slide{position:relative;z-index:2;width:100%;max-width:1100px;padding:28px 48px;}
+.kbak-title{font-family:'Playfair Display',serif;font-size:clamp(20px,2.8vw,34px);font-weight:700;color:var(--white);line-height:1.2;margin-bottom:6px;animation:fu .6s .2s both;}
+.kbak-sub{font-size:13px;color:rgba(200,214,232,.6);margin-bottom:20px;animation:fu .6s .3s both;}
+
+/* Overview cards 3-kolom */
+.kbak-ov-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;animation:fu .5s .3s both;}
+.kbak-ov-card{background:rgba(255,255,255,.04);border:1px solid var(--kbak-green-border);border-top:3px solid var(--kbak-green);border-radius:6px;padding:16px 16px 14px;}
+.kbak-ov-icon{font-size:28px;margin-bottom:8px;}
+.kbak-ov-h{font-size:13px;font-weight:700;color:var(--white);margin-bottom:6px;}
+.kbak-ov-p{font-size:11.5px;color:rgba(200,214,232,.75);line-height:1.55;}
+.kbak-ov-stat{display:flex;gap:10px;margin-top:10px;flex-wrap:wrap;}
+.kbak-stat-chip{background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.2);border-radius:4px;padding:3px 10px;font-size:10px;color:var(--kbak-green);font-weight:600;}
+
+/* Highlight box bawah overview */
+.kbak-hl{background:linear-gradient(135deg,rgba(34,197,94,.1),rgba(14,158,158,.06));border:1px solid rgba(34,197,94,.2);border-left:3px solid var(--kbak-green);border-radius:6px;padding:12px 16px;font-size:12.5px;color:var(--light);margin-top:14px;animation:fu .5s .7s both;}
+
+/* ── SLIDE 2: Tab Accordion ── */
+.kbak-tab-wrap{animation:fu .5s .3s both;}
+.kbak-tabs{display:flex;gap:0;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:0;}
+.kbak-tab{padding:9px 20px;font-size:12px;font-weight:600;letter-spacing:.5px;color:rgba(200,214,232,.45);cursor:pointer;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;white-space:nowrap;user-select:none;}
+.kbak-tab:hover{color:var(--gray);}
+.kbak-tab.active{color:var(--kbak-green);border-bottom-color:var(--kbak-green);}
+.kbak-tab-panel{display:none;padding-top:16px;}
+.kbak-tab-panel.active{display:block;}
+
+/* Item list dalam tab */
+.kbak-item-list{display:flex;flex-direction:column;gap:10px;}
+.kbak-item{display:flex;gap:12px;align-items:flex-start;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-left:3px solid var(--kbak-green);border-radius:6px;padding:12px 14px;}
+.kbak-item.yellow{border-left-color:var(--kbak-yellow);border-color:rgba(240,165,0,.12);}
+.kbak-item.red{border-left-color:var(--kbak-red);border-color:rgba(248,113,113,.12);}
+.kbak-item-icon{font-size:22px;flex-shrink:0;margin-top:1px;}
+.kbak-item-body{}
+.kbak-item-h{font-size:13px;font-weight:600;color:var(--white);margin-bottom:4px;}
+.kbak-item.yellow .kbak-item-h{color:var(--kbak-yellow);}
+.kbak-item.red .kbak-item-h{color:var(--kbak-red);}
+.kbak-item-p{font-size:12px;color:rgba(200,214,232,.75);line-height:1.55;}
+
+/* ── SLIDE 3: Dampak ── */
+.kbak-dampak-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
+.kbak-dampak-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:6px;padding:16px 16px 14px;animation:fu .5s both;}
+.kbak-dampak-card.green{border-top:2px solid var(--kbak-green);}
+.kbak-dampak-card.yellow{border-top:2px solid var(--kbak-yellow);}
+.kbak-dampak-card.blue{border-top:2px solid var(--kbak-blue);}
+.kbak-dampak-card.red{border-top:2px solid var(--kbak-red);}
+.kbak-dampak-icon{font-size:24px;margin-bottom:8px;}
+.kbak-dampak-h{font-size:13px;font-weight:700;color:var(--white);margin-bottom:6px;}
+.kbak-dampak-card.green .kbak-dampak-h{color:var(--kbak-green);}
+.kbak-dampak-card.yellow .kbak-dampak-h{color:var(--kbak-yellow);}
+.kbak-dampak-card.blue .kbak-dampak-h{color:var(--kbak-blue);}
+.kbak-dampak-card.red .kbak-dampak-h{color:var(--kbak-red);}
+.kbak-dampak-p{font-size:11.5px;color:rgba(200,214,232,.75);line-height:1.55;}
+
+/* ── SLIDE 4: Regulasi ── */
+.kbak-reg-list{display:flex;flex-direction:column;gap:10px;margin-bottom:14px;}
+.kbak-reg-item{display:flex;gap:14px;align-items:flex-start;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:6px;padding:13px 16px;animation:fu .5s both;}
+.kbak-reg-num{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--kbak-green);flex-shrink:0;min-width:28px;}
+.kbak-reg-body{}
+.kbak-reg-h{font-size:13px;font-weight:600;color:var(--white);margin-bottom:3px;}
+.kbak-reg-p{font-size:11.5px;color:rgba(200,214,232,.7);line-height:1.5;}
+
+/* Geopark badge */
+.kbak-geo-badge{display:flex;gap:14px;align-items:center;background:linear-gradient(135deg,rgba(34,197,94,.1),rgba(14,158,158,.07));border:1px solid rgba(34,197,94,.25);border-radius:8px;padding:14px 18px;animation:fu .5s .6s both;}
+.kbak-geo-icon{font-size:36px;flex-shrink:0;}
+.kbak-geo-body{}
+.kbak-geo-h{font-size:13px;font-weight:700;color:var(--kbak-green);margin-bottom:4px;}
+.kbak-geo-p{font-size:12px;color:rgba(200,214,232,.8);line-height:1.55;}
+
+/* Responsive KBAK */
+@media (max-width:768px){
+  .kbak-slide{padding:14px 16px;}
+  .kbak-ov-grid{grid-template-columns:1fr;}
+  .kbak-dampak-grid{grid-template-columns:1fr;}
+  .kbak-title{font-size:clamp(18px,5vw,26px);}
+  .kbak-tab{padding:7px 12px;font-size:11px;}
+  .kbak-item{padding:10px 12px;}
+  .kbak-item-icon{font-size:18px;}
+  .kbak-item-h{font-size:12px;}
+  .kbak-item-p{font-size:11px;}
+  .kbak-reg-item{padding:10px 12px;}
+  .kbak-reg-num{font-size:17px;}
+}
+
 </style>
 </head>
 <body>
@@ -808,6 +907,246 @@ html,body{width:100%;height:100%;font-family:'Source Sans 3',sans-serif;backgrou
     </div>
   </div>
 </div>
+<!-- ============ SLIDE A: SECTION HEADER KBAK ============ -->
+<div class="slide bkbak">
+  <div class="go"></div><div class="rkbak"></div>
+  <div class="snum" style="color:rgba(34,197,94,.04)">KBAK</div>
+  <div class="shdr">
+    <span class="sicon">🏔️</span>
+    <div class="slbl" style="color:var(--kbak-green)">Investasi Strategis</div>
+    <h2 class="stitle">Investasi di Kawasan<br><span style="color:var(--kbak-green)">Bentang Alam Karst</span></h2>
+    <div class="sbar" style="background:var(--kbak-green)"></div>
+    <p class="sdesc">Peluang, tantangan, hambatan, dan dampak investasi di wilayah selatan Kabupaten Gunungkidul — kawasan strategis Geopark UNESCO Gunung Sewu</p>
+  </div>
+</div>
+
+<!-- ============ SLIDE 1: OVERVIEW ============ -->
+<div class="slide bkbak">
+  <div class="go"></div><div class="rkbak"></div>
+  <div class="kbak-slide">
+    <div class="kbak-tag">DPMPTSP · KBAK GUNUNGSEWU</div>
+    <div class="kbak-title">Overview: Investasi di Wilayah Selatan Gunungkidul</div>
+    <div class="kbak-sub">Gambaran umum potensi dan kondisi kawasan sebagai basis perencanaan investasi</div>
+
+    <div class="kbak-ov-grid">
+      <div class="kbak-ov-card" style="animation-delay:.1s">
+        <div class="kbak-ov-icon">🌊</div>
+        <div class="kbak-ov-h">Wilayah Pesisir Selatan</div>
+        <div class="kbak-ov-p">Garis pantai selatan yang panjang dengan potensi pariwisata premium, ekowisata, dan ekonomi biru melalui pelabuhan Sadeng.</div>
+        <div class="kbak-ov-stat">
+          <span class="kbak-stat-chip">Pantai Unggulan</span>
+          <span class="kbak-stat-chip">Pelabuhan Sadeng</span>
+        </div>
+      </div>
+      <div class="kbak-ov-card" style="animation-delay:.2s">
+        <div class="kbak-ov-icon">🗺️</div>
+        <div class="kbak-ov-h">Kawasan Bentang Alam Karst</div>
+        <div class="kbak-ov-p">KBAK Gunungsewu ditetapkan melalui Kepmen ESDM No. 3041 K/40/MEM/2014 — kawasan lindung geologi dengan nilai konservasi dan wisata tinggi<br>Kawasan KBAK : Karangmojo, Nglipar, Paliyan, Panggang, Playen, Ponjong, Purwosari, Rongkop, Girisubo, Saptosari, Semanu, Tanjungsari, Tepus dan Wonosari
+.</div>
+        <div class="kbak-ov-stat">
+          <span class="kbak-stat-chip">Zona Lindung</span>
+          <span class="kbak-stat-chip">± 757,13 km²</span>
+        </div>
+      </div>
+      <div class="kbak-ov-card" style="animation-delay:.3s">
+        <div class="kbak-ov-icon">🛣️</div>
+        <div class="kbak-ov-h">Aksesibilitas JJLS</div>
+        <div class="kbak-ov-p">Jalur Jalan Lintas Selatan (JJLS) mempercepat konektivitas wilayah selatan, mendorong nilai lahan dan membuka pusat pertumbuhan ekonomi baru.</div>
+        <div class="kbak-ov-stat">
+          <span class="kbak-stat-chip">Infrastruktur Prioritas</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="kbak-hl">
+      🏆 <strong style="color:var(--kbak-green)">Gunung Sewu UNESCO Global Geopark</strong> — Status internasional ini menjadi aset <em>branding</em> investasi. Setiap kegiatan usaha wajib menopang tiga pilar Geopark: <strong>Konservasi · Edukasi · Pemberdayaan Masyarakat</strong>
+    </div>
+  </div>
+</div>
+
+<!-- ============ SLIDE 2: PELUANG, TANTANGAN, HAMBATAN (TAB) ============ -->
+<div class="slide bkbak">
+  <div class="go"></div><div class="rkbak"></div>
+  <div class="kbak-slide">
+    <div class="kbak-tag">DPMPTSP · ANALISIS INVESTASI</div>
+    <div class="kbak-title">Peluang, Tantangan &amp; Hambatan Investasi di KBAK</div>
+    <div class="kbak-sub">Klik tab untuk melihat setiap dimensi analisis</div>
+
+    <div class="kbak-tab-wrap">
+      <div class="kbak-tabs">
+        <div class="kbak-tab active" onclick="kbakTab(this,'kbak-p1')">🟢 Peluang</div>
+        <div class="kbak-tab" onclick="kbakTab(this,'kbak-p2')">🟡 Tantangan</div>
+        <div class="kbak-tab" onclick="kbakTab(this,'kbak-p3')">🔴 Hambatan</div>
+      </div>
+
+      <!-- Panel: Peluang -->
+      <div class="kbak-tab-panel active" id="kbak-p1">
+        <div class="kbak-item-list">
+          <div class="kbak-item">
+            <div class="kbak-item-icon">🏖️</div>
+            <div class="kbak-item-body">
+              <div class="kbak-item-h">Pariwisata Premium &amp; Ekowisata</div>
+              <div class="kbak-item-p">Garis pantai selatan yang panjang membuka peluang pengembangan akomodasi ramah lingkungan — glamping, resort berbasis kontur — dengan segmen pasar menengah ke atas yang terus tumbuh.</div>
+            </div>
+          </div>
+          <div class="kbak-item">
+            <div class="kbak-item-icon">🐟</div>
+            <div class="kbak-item-body">
+              <div class="kbak-item-h">Ekonomi Biru</div>
+              <div class="kbak-item-p">Potensi investasi di sektor perikanan tangkap dan pengolahan hasil laut di sekitar pelabuhan Sadeng yang belum tergarap secara optimal.</div>
+            </div>
+          </div>
+          <div class="kbak-item">
+            <div class="kbak-item-icon">🛣️</div>
+            <div class="kbak-item-body">
+              <div class="kbak-item-h">Infrastruktur Jalur Jalan Lintas Selatan (JJLS)</div>
+              <div class="kbak-item-p">JJLS mempercepat aksesibilitas dan meningkatkan nilai lahan di wilayah selatan, menjadi katalis bagi terbentuknya pusat pertumbuhan ekonomi baru di kawasan karst.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel: Tantangan -->
+      <div class="kbak-tab-panel" id="kbak-p2">
+        <div class="kbak-item-list">
+          <div class="kbak-item yellow">
+            <div class="kbak-item-icon">💧</div>
+            <div class="kbak-item-body">
+              <div class="kbak-item-h">Keseimbangan Ekologi Karst</div>
+              <div class="kbak-item-p">Menjaga integritas hidrologi karst merupakan keharusan — aktivitas ekonomi yang tidak terkendali dapat mencemari cadangan air tanah melalui rekahan karst yang sensitif.</div>
+            </div>
+          </div>
+          <div class="kbak-item yellow">
+            <div class="kbak-item-icon">👷</div>
+            <div class="kbak-item-body">
+              <div class="kbak-item-h">Kapasitas SDM Lokal</div>
+              <div class="kbak-item-p">Kebutuhan sertifikasi tenaga kerja lokal agar mampu bersaing di sektor jasa pariwisata menengah ke atas — tanpa intervensi ini, manfaat ekonomi berpotensi mengalir ke tenaga kerja pendatang.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel: Hambatan -->
+      <div class="kbak-tab-panel" id="kbak-p3">
+        <div class="kbak-item-list">
+          <div class="kbak-item red">
+            <div class="kbak-item-icon">📑</div>
+            <div class="kbak-item-body">
+              <div class="kbak-item-h">Kesesuaian Tata Ruang</div>
+              <div class="kbak-item-p">Masih terdapat tumpang tindih antara zona pemanfaatan ekonomi dengan zona lindung geologi, menghambat kepastian perizinan bagi calon investor.</div>
+            </div>
+          </div>
+          <div class="kbak-item red">
+            <div class="kbak-item-icon">⛏️</div>
+            <div class="kbak-item-body">
+              <div class="kbak-item-h">Topografi &amp; Biaya Konstruksi</div>
+              <div class="kbak-item-p">Medan batuan karst yang keras secara signifikan meningkatkan biaya pembangunan infrastruktur dasar, menjadi disinsentif bagi investor dengan modal terbatas.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ SLIDE 3: DAMPAK INVESTASI ============ -->
+<div class="slide bkbak">
+  <div class="go"></div><div class="rkbak"></div>
+  <div class="kbak-slide">
+    <div class="kbak-tag">DPMPTSP · DAMPAK INVESTASI</div>
+    <div class="kbak-title">Pengaruh Investasi terhadap Berbagai Aspek</div>
+    <div class="kbak-sub">Dampak multidimensi yang perlu dikelola secara berimbang oleh pemangku kepentingan daerah</div>
+
+    <div class="kbak-dampak-grid">
+      <div class="kbak-dampak-card green" style="animation-delay:.1s">
+        <div class="kbak-dampak-icon">🌿</div>
+        <div class="kbak-dampak-h">Kerusakan Lingkungan</div>
+        <div class="kbak-dampak-p">Risiko utama berupa polusi limbah cair yang dapat meresap langsung ke sungai bawah tanah melalui rekahan karst. Syarat <strong>Zero Waste</strong> wajib menjadi klausul mandatori dalam setiap perizinan investasi di kawasan ini.</div>
+      </div>
+      <div class="kbak-dampak-card yellow" style="animation-delay:.2s">
+        <div class="kbak-dampak-icon">💼</div>
+        <div class="kbak-dampak-h">Kesempatan Kerja</div>
+        <div class="kbak-dampak-p">Penyerapan tenaga kerja di sektor perhotelan dan restoran mulai menggeser struktur lapangan kerja dari pertanian ke jasa — pergeseran struktural yang membutuhkan pendampingan ketenagakerjaan aktif.</div>
+      </div>
+      <div class="kbak-dampak-card blue" style="animation-delay:.3s">
+        <div class="kbak-dampak-icon">⚖️</div>
+        <div class="kbak-dampak-h">Kemiskinan &amp; Ketimpangan</div>
+        <div class="kbak-dampak-p">Investasi besar (resort/beach club) berpotensi menekan angka kemiskinan melalui <em>multiplier effect</em>, namun perlu pengawasan ketat agar tidak terjadi ketimpangan akses ekonomi antara pendatang dan penduduk lokal.</div>
+      </div>
+      <div class="kbak-dampak-card red" style="animation-delay:.4s">
+        <div class="kbak-dampak-icon">🗺️</div>
+        <div class="kbak-dampak-h">Status Geopark UNESCO</div>
+        <div class="kbak-dampak-p">Investasi yang merusak bentang alam — seperti pertambangan skala besar di zona inti — dapat <strong>mengancam status internasional</strong> Gunung Sewu sebagai UNESCO Global Geopark dan seluruh nilai branding yang melekat padanya.</div>
+      </div>
+    </div>
+
+    <div class="kbak-hl">
+      ⚡ <strong style="color:var(--kbak-green)">Prinsip Utama:</strong> Daya dukung lingkungan adalah batas mutlak pertumbuhan investasi di wilayah KBAK. Setiap izin wajib mempertimbangkan kapasitas ekosistem karst sebelum diterbitkan.
+    </div>
+  </div>
+</div>
+
+<!-- ============ SLIDE 4: REGULASI ============ -->
+<div class="slide bkbak">
+  <div class="go"></div><div class="rkbak"></div>
+  <div class="kbak-slide">
+    <div class="kbak-tag">DPMPTSP · REGULASI &amp; GEOPARK</div>
+    <div class="kbak-title">Koridor Regulasi Investasi di KBAK</div>
+    <div class="kbak-sub">Kerangka hukum yang wajib dipatuhi oleh seluruh pelaku investasi di wilayah selatan Gunungkidul</div>
+
+    <div class="kbak-reg-list">
+      <div class="kbak-reg-item" style="animation-delay:.1s">
+        <div class="kbak-reg-num">01</div>
+        <div class="kbak-reg-body">
+          <div class="kbak-reg-h">Kepmen ESDM No. 3041 K/40/MEM/2014</div>
+          <div class="kbak-reg-p">Penetapan Kawasan Bentang Alam Karst (KBAK) Gunungsewu — menjadi dasar hukum penetapan zona lindung geologi yang membatasi jenis kegiatan di kawasan inti.</div>
+        </div>
+      </div>
+      <div class="kbak-reg-item" style="animation-delay:.2s">
+        <div class="kbak-reg-num">02</div>
+        <div class="kbak-reg-body">
+          <div class="kbak-reg-h">PP No. 28 Tahun 2025 — Perizinan Berbasis Risiko</div>
+          <div class="kbak-reg-p">Wilayah karst masuk kategori risiko lingkungan tinggi yang memerlukan pengawasan ketat dalam setiap tahapan perizinan berusaha melalui sistem OSS RBA.</div>
+        </div>
+      </div>
+      <div class="kbak-reg-item" style="animation-delay:.3s">
+        <div class="kbak-reg-num">03</div>
+        <div class="kbak-reg-body">
+          <div class="kbak-reg-h">Perda DIY No. 5 Tahun 2019 — RTRW DIY</div>
+          <div class="kbak-reg-p">Menegaskan pengembangan wilayah selatan sebagai <em>"Muka Depan"</em> DIY — menempatkan kawasan ini sebagai prioritas pembangunan sekaligus dengan kewajiban menjaga kualitas lingkungan.</div>
+        </div>
+      </div>
+      <div class="kbak-reg-item" style="animation-delay:.4s">
+        <div class="kbak-reg-num">04</div>
+        <div class="kbak-reg-body">
+          <div class="kbak-reg-h">Perda Kab. Gunungkidul No. 6 Tahun 2011 (dan perubahannya)</div>
+          <div class="kbak-reg-p">RTRW Kabupaten Gunungkidul — mengatur zonasi pemanfaatan ruang di pesisir dan kawasan karst, termasuk penetapan koridor pemanfaatan ekonomi dan zona perlindungan.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="kbak-geo-badge">
+      <div class="kbak-geo-icon">🌍</div>
+      <div class="kbak-geo-body">
+        <div class="kbak-geo-h">Gunung Sewu UNESCO Global Geopark — Aset Branding Investasi</div>
+        <div class="kbak-geo-p">Status internasional ini wajib dijaga bersama. Setiap investasi yang masuk <strong>harus mendukung tiga pilar Geopark: Konservasi · Edukasi · Pemberdayaan Masyarakat</strong>. Pelanggaran terhadap nilai-nilai ini bukan hanya merugikan lingkungan, tetapi berpotensi mencabut status UNESCO yang telah menjadi keunggulan kompetitif daerah.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── SCRIPT TAB KBAK (tambahkan di atas </body>) ── -->
+<script>
+function kbakTab(el, panelId) {
+  // Nonaktifkan semua tab dan panel dalam parent yang sama
+  const wrap = el.closest('.kbak-tab-wrap');
+  wrap.querySelectorAll('.kbak-tab').forEach(t => t.classList.remove('active'));
+  wrap.querySelectorAll('.kbak-tab-panel').forEach(p => p.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById(panelId).classList.add('active');
+}
+</script>
+
 <!-- ============ SLIDE makro ekonomi gunungkidul ============ -->
 <div class="slide bs">
   <div class="go"></div><div class="snum">08</div>
