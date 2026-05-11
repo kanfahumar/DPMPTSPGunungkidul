@@ -19,6 +19,12 @@
     "url": "newform.html",
     "icon": "fa-file-signature"
   },
+
+   {
+    "title": "Formulir Daftar Pengunjung",
+    "url": "https://forms.gle/uNRX71maX2Kfv5Rw7",
+    "icon": "fa-file-signature"
+  },
   {
     "title": "Produk UMKM Gunungkidul",
     "url": "subpage.html",
